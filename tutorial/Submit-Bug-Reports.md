@@ -1,0 +1,18 @@
+If you find a bug in MongoDB or one of the related projects, you should submit a report to that project's [JIRA](https://jira.mongodb.org) issue tracker.
+
+Your first step should be to search the existing set of open tickets for a similar report. If you find that someone else has already reported your problem, then you can upvote that report to increase its visibility.
+
+If there is no existing report, submit a report following these steps:
+
+1.  [Sign in to MongoDB JIRA.](https://jira.mongodb.org/login.jsp) You will need to create an account if you do not have one.
+2.  [Go to the Create Issue screen and select the relevant project.](https://jira.mongodb.org/secure/CreateIssue.jspa)
+3.  Fill in the fields of Summary, Description, Steps To Reproduce, and Affects Version to the best you can. If the bug corresponds to a crash, attach the stack trace from the logs.
+
+An excellent resource is [Elika Etemad's article on filing good bug reports.](http://fantasai.inkedblade.net/style/talks/filing-good-bugs/).
+
+As a general rule of thumb, please try to create bug reports that are:
+
+-   *Reproducible.* Include steps to reproduce the problem.
+-   *Specific.* Include as much detail as possible: which version, what environment, etc.
+-   *Unique.* Do not duplicate existing tickets.
+-   *Scoped to a Single Bug.* One bug per report.
