@@ -30,8 +30,7 @@ res = benchRun( {
         update : { $inc : { x : 1 } }
     } ] ,
     parallel : 2 ,
-    seconds : 1 ,
-    totals : true
+    seconds : 1
 } );
 print( "threads: 2\t update/sec: " + res.update );
 // benchmark inserts with random strings
@@ -42,8 +41,7 @@ res = benchRun( {
         doc : { y : { "#RAND_STRING" : [ 10 ] } }
     } ] ,
     parallel : 2 ,
-    seconds : 1 ,
-    totals : true
+    seconds : 1
 } );
 print( "threads: 2\t insert/sec: " + res.insert );
 ```
