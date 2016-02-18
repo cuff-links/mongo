@@ -133,13 +133,13 @@ MongoDB version 2.4.x supports VS 2010. MongoDB 2.6.x, and 2.7.x support VS 2010
 Finally, to build MongoDB for Windows, you will need to specify whether SCons will target 32-bit or 64-bit. SCons will target 32-bit builds by default. For 64-bit builds, run the following command:
 
 ``` sourceCode
-scons --64
+scons --64bit
 ```
 
 For 32-bit builds, run the following command:
 
 ``` sourceCode
-scons --32
+scons --32bit
 ```
 
 Building with Visual Studio 2013 & Later
