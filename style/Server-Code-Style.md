@@ -250,6 +250,16 @@ For `h` files
 -   Forward declare, if possible, in lieu of including local headers in headers. Only include things that are directly used in the header itself.
 -   Do not include platform/basic.h in a header; assume that all source files will include it prior to including the header.
 
+For `js` files
+-------------
+
+-   Disable formatting for [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+``` sourceCode
+// clang-format off
+newCode = `load("${overridesFile}"); (${jsCode})();`;
+// clang-format on
+```
+
 File Names
 ----------
 
@@ -298,10 +308,34 @@ We should have standards for these -- i.e. megabytes should always be `MB` and n
 -   For time: use millis (`Ms`) for time by default. You can also use Secs and a float for times you know will be very long.
 -   For microseconds, use `Micros` as the suffix, e.g., `timeMicros`.
 
+ESLint
+------
+
+As of the 3.2 code, MongoDB uses [ESLint](http://eslint.org/) version 2.3.0 to lint JS code. ESLint is a JS linting tool that uses the config file located at `.eslintrc.yml`, in the root of the mongo repository, to control the linting of the JS code.
+
+> **important**
+>
+> All JS files must be linted by ESLint before they are formatted by clang-format.
+
+[Plugins](http://eslint.org/docs/user-guide/integrations) are available for most editors that will automatically run ESLint on file save. It is recommended to use one of these plugins.
+
+Use the Python script `buildscripts/eslint.py` to check that the JS code is linted correctly as well as to fix linting errors in the code.
+
+To lint JS code:  
+``` sourceCode
+python buildscripts/eslint.py lint
+```
+
+To auto-fix JS code:
+``` sourceCode
+python buildscripts/eslint.py fix
+```
+
+
 Clang-Format
 ------------
 
-As of the 3.2 code, MongoDB uses [Clang-Format](http://clang.llvm.org/docs/ClangFormat.html) version 3.6.0 to enforce coding style. Clang-Format is a C/C++ code formatting tool that uses the config file located at `src/mongo/.clang-format` to control the format of the code.
+As of the 3.2 code, MongoDB uses [Clang-Format](http://clang.llvm.org/docs/ClangFormat.html) version 3.6.0 to enforce coding style. Clang-Format is a C/C++ & JS code formatting tool that uses the config files located at `src/mongo/.clang-format` & `jstests/.clang-format` to control the format of the code.
 
 > **important**
 >
@@ -309,7 +343,7 @@ As of the 3.2 code, MongoDB uses [Clang-Format](http://clang.llvm.org/docs/Clang
 
 Plugins are available for most editors that will automatically run clang-format on file save. It is recommended to use one of these plugins.
 
-Use the Python script `buildscripts/clang_format.py` to check that the code is formatted correctly as well as to reformat the code.
+Use the Python script `buildscripts/clang_format.py` to check that the C/C++ & JS code is formatted correctly as well as to reformat the code.
 
 To lint code:  
 ``` sourceCode
