@@ -9,15 +9,25 @@ Though the exact dependencies and semantics differ by operating system, building
 Dependencies & Installation
 ---------------------------
 
-To build MongoDB, you will need:
+The requirements for building MongoDB vary by branch:
 
--   C++11 to build 3.0.x branches or later.
--   A modern C++ compiler. One of the following is required.
-    -   GCC 4.8.2 or newer
-    -   Clang 3.4 (or Apple XCode 5.1.1 Clang) or newer
-    -   Visual Studio 2013 Update 4 or newer
--   Python 2.7
--   SCons 2.3
+To build the master branch, you will need:
+- A modern and complete C++11 compiler. One of the following is required:
+  - VS2015 Update 2 or newer
+  - GCC 5.3.0
+  - Clang 3.4 (or Apple XCode 5.1.1 Clang) or newer
+- Python 2.7
+- SCons 2.3.5 or newer (for MSVC 2015 support)
+
+To build the 3.2 and 3.0 branches, you will need:
+- A C++11 compiler. One of the following is required:
+  - VS2013 Update 4 or newer. Note that VS2015 is currently not compatible with the 3.0 and 3.2 branches. You must use VS2013.
+  - GCC 4.8.2 or newer. Note that versions of GCC newer than 4.8.2 may produce warnings when building these branches, which are promoted to errors. Please use the --disable-warnings-as-errors build option if necessary to allow the build to succeed despite the warnings.
+- Python 2.7
+- SCons 2.3.0 or newer
+
+To build the 2.6 branch, you will need:
+- A C++03 compiler, or VS2010 or newer.
 
 MongoDB uses [SCons](http://www.scons.org/) to build the Server and the shell. While it is unnecessary to know all the intricacies of SCons, glancing over the documentation may be helpful. SCons is unlikely to come preinstalled on your system, so make sure to install it using your preferred package manager.
 
