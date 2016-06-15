@@ -275,6 +275,7 @@ Casting
 -   Use `static_cast<>` as needed. Use `const_cast<>` when no other solutions will work.
 -   Be aware that `dynamic_cast<>`, unlike other casts, is done at run-time and calls a function. You should always check the return status of `dynamic_cast<>` for `null`.
 -   `reinterpret_cast<>` should be used sparingly and is typically done for converting structures to raw bytes for use with I/O drivers.
+-   When down-casting from a base type where the program logic guarantees that the runtime type is correct, consider using `checked_cast<>` from `mongo/base/checked_cast.h`. It is equivalent to static\_cast in release builds, but adds an invariant to debug builds that ensures the cast is valid.
 
 RAII and Bare vs. Smart Pointers
 --------------------------------
