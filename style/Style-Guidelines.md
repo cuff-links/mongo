@@ -30,13 +30,14 @@ General Guidelines for Commenting Code
 -   Use complete sentences with proper capitalization and punctuation.
 -   Use declarative comments instead of imperatives; i.e. comments should state what the function does.
 
-    For example, if a function computes the product of two numbers, the comment should state:
+    For example, if a function computes the product of two numbers, the comment might state:
 
     ``` sourceCode
-    This function computes the product of two floats.
+    This function returns the area of a rectangle with the specified dimensions.
     ```
 
     Avoid using the imperative `Compute the product of two floats.`
+    The comment should say what is being achieved, and why, not how it is done.
 
 -   Every module, class, method, type, or global variable should have a one-line comment of its functionality. A method should have a one-line description of what it does, including its input and output.
 
