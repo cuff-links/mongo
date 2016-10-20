@@ -38,7 +38,7 @@ Basics
      */
     ```
 
--   For anything that isn't explicitly covered here, default to the [Google C++ Style Guide](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml) and the [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml).
+-   For anything that isn't explicitly covered here, default to the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and the [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml).
 
 Case
 ----
