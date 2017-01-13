@@ -16,10 +16,10 @@ MongoDB welcomes community contributions! If you’re interested in making a con
 
 ##### A note on “Fix Version/s”
 The SERVER JIRA project uses the “Fix Version/s” field to indicate the current scheduling for tickets. Here is what they mean:
-X.Y.Z or “X.Y Required/Desired”, where X, Y and Z are numbers: a ticket has been scheduled for the X.Y version of MongoDB.
-“Needs Triage”: a ticket needs to be scheduled
-“Planning Bucket A”, “Planned but not scheduled”: a ticket to be considered in a future round of planning
-“Features we’re not sure of”: tickets representing changes to MongoDB that are currently not being considered for implementation, but may in the future.
+- X.Y.Z or “X.Y Required/Desired”, where X, Y and Z are numbers: a ticket has been scheduled for the X.Y version of MongoDB.
+- “Needs Triage”: a ticket needs to be scheduled
+- “Planning Bucket A”, “Planned but not scheduled”: a ticket to be considered in a future round of planning
+- “Features we’re not sure of”: tickets representing changes to MongoDB that are currently not being considered for implementation, but may in the future.
 
 ### Other Resources for help with MongoDB
 **Documentation**
