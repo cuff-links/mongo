@@ -18,6 +18,7 @@
 * [Style Guidelines](Style-Guidelines)
 
 **Server Internals**
+* [Sharding Internals](Sharding-Internals)
 * [Exception Architecture](Server-Exception-Architecture)
 * [Logging Rules](Server-Logging-Rules)
 * [Memory Management](Server-Memory-Management)
