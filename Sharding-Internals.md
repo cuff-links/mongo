@@ -58,18 +58,18 @@ Shards also **cache** the routing table and shard list in memory in order to per
 
 All three types of nodes (mongos, shards, and config servers) cache the routing table in memory. (Only the config server, which is authoritative for the routing table, additionally stores the routing table information in the on-disk collections [config.databases](https://docs.mongodb.com/manual/reference/config-database/#config.databases), [config.collections](https://docs.mongodb.com/manual/reference/config-database/#config.collections), and [config.chunks](https://docs.mongodb.com/manual/reference/config-database/#config.chunks)).
 
+A routing table cache becomes stale (and must be refreshed from the authoritative copy on the config servers) when:
+* a sharded collection is dropped (and perhaps recreated with the same name)
+* a collection becomes sharded or unsharded
+* a chunk in the collection migrates from one shard to another
+
 In code, the `CatalogCache` is the root of the hierarchy of the in-memory routing table cache.
 
 The `CatalogCache` contains a map of database names to `DBConfig` objects. Each `DBConfig` object contains a map of collection names to `CollectionInfo` objects. Finally, each `CollectionInfo` object contains a `ChunkManager`, which has a map of chunks to shards:
 
 `CatalogCache` -> `DBConfig` -> `CollectionInfo` -> `ChunkManager`
 
-A routing table cache becomes stale (and must be refreshed from the authoritative copy on the config servers) when:
-* a sharded collection is dropped (and perhaps recreated with the same name)
-* a collection becomes sharded or unsharded
-* a chunk in the collection migrates from one shard to another
-
-For the first two cases, the `CatalogCache` contains methods to invalidate and reload an entire `DBConfig`, which includes a full reload of the `ChunkManager`.
+For the first ways of becoming stale, the `CatalogCache` contains methods to invalidate and reload an entire `DBConfig`, which includes a full reload of the `ChunkManager`.
 For the third case, the `DBConfig` contains methods to perform an incremental reload of the `ChunkManager`.
 
 The `CatalogCache` uses methods on the `ShardingCatalogClient` to load data from the config server, and the `ChunkManager` uses the `ConfigDiffTracker` to perform the incremental chunk reload logic.
