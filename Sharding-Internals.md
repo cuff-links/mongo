@@ -69,7 +69,7 @@ The `CatalogCache` contains a map of database names to `DBConfig` objects. Each 
 
 `CatalogCache` -> `DBConfig` -> `CollectionInfo` -> `ChunkManager`
 
-For the first ways of becoming stale, the `CatalogCache` contains methods to invalidate and reload an entire `DBConfig`, which includes a full reload of the `ChunkManager`.
+For the first two ways of becoming stale, the `CatalogCache` contains methods to invalidate and reload an entire `DBConfig`, which includes a full reload of the `ChunkManager`.
 For the third case, the `DBConfig` contains methods to perform an incremental reload of the `ChunkManager`.
 
 The `CatalogCache` uses methods on the `ShardingCatalogClient` to load data from the config server, and the `ChunkManager` uses the `ConfigDiffTracker` to perform the incremental chunk reload logic.
