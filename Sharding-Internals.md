@@ -14,7 +14,7 @@ A reader should have a [basic understanding of sharding](https://docs.mongodb.co
 
 The main goals of sharding are to:
 * allow collections to be partitioned and distributed across shards
-* allow a cluster to be scaled by by adding or removing shards
+* allow a cluster to be scaled by adding or removing shards
 
 Sharding also provides some features, such as:
 * auto-balancing and auto-splitting of chunks
