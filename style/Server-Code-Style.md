@@ -336,7 +336,7 @@ python buildscripts/eslint.py fix
 Clang-Format
 ------------
 
-As of the 3.2 code, MongoDB uses [Clang-Format](http://clang.llvm.org/docs/ClangFormat.html) version 3.6.0 to enforce coding style. Clang-Format is a C/C++ & JS code formatting tool that uses the config files located at `src/mongo/.clang-format` & `jstests/.clang-format` to control the format of the code.
+As of the 3.5 code, MongoDB uses [Clang-Format](http://clang.llvm.org/docs/ClangFormat.html) version 3.9 to enforce coding style. Clang-Format is a C/C++ & JS code formatting tool that uses the config files located at `src/mongo/.clang-format` & `jstests/.clang-format` to control the format of the code.
 
 > **important**
 >
