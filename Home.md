@@ -7,7 +7,7 @@ The MongoDB Server is written in C++ with an extensive suite of tests in JavaScr
 ### Contributing to MongoDB
 MongoDB welcomes community contributions! If you’re interested in making a contribution to MongoDB, please follow the steps below before you start writing any code:
 
-1. Sign the contributor's agreement. This will allow us to review and accept contributions.
+1. Sign the [contributor's agreement](http://www.mongodb.com/contributor). This will allow us to review and accept contributions.
 2. Reach out to us to discuss your contribution. Either find an open JIRA ticket for an existing issue and comment in it, or create a new JIRA ticket that describes the change you would like to work on. If in doubt feel free to always create a new ticket.
     * New to MongoDB development? The SERVER JIRA project, tickets of an appropriate complexity for new engineers are marked with a “neweng” label. For more details, see [Choosing a Project](https://github.com/mongodb/mongo/wiki/Choose-A-Project).
     * See [“A note on Fix Version/s”](#a-note-on-fix-versions) below to see how to find work that’s currently scheduled in our roadmap
