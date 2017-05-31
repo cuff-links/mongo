@@ -62,6 +62,21 @@ Further requirements are system-dependent and for both SCons and running the tes
 
     When you run SCons, you will also need to pass additional arguments to `scons` to use the compiler from ports instead of the system compiler, i.e. `--cc=egcc --cxx=eg++`.
 
+
+Installing pip requirements
+---------------------------
+
+```
+# Windows
+pip.exe install -r buildscripts\requirements.txt
+
+# macOS / Linux
+pip install -r buildscripts/requirements.txt
+```
+
+All of these commands should be run from the root of the MongoDB repository.
+
+
 Building With SCons
 -------------------
 
