@@ -12,6 +12,19 @@ MongoDB welcomes community contributions! If you’re interested in making a con
     * New to MongoDB development? The SERVER JIRA project, tickets of an appropriate complexity for new engineers are marked with a “neweng” label. For more details, see [Choosing a Project](https://github.com/mongodb/mongo/wiki/Choose-A-Project).
     * See [“A note on Fix Version/s”](#a-note-on-fix-versions) below to see how to find work that’s currently scheduled in our roadmap
 3. Begin a discussion on the ticket describing the intended changes. MongoDB developers can help hash out the approach and make sure everyone is on the same page before too much time is spent writing the code changes and associated tests.
+    * For bug fixes, the discussion should be a brief one to confirm that your proposed fix makes
+sense. Once you and the MongoDB engineer have aligned you should open a pull request against the
+MongoDB repository as per the 'Pull Request Expectations' section of this document.
+    * All syntactic and new feature changes, however, go through our design review process (whether
+the change is from an external pull request or a MongoDB engineer). So a MongoDB engineer will first
+discuss your proposal (including the syntax, output, whether it impacts sharding, etc.) to confirm
+that the implementation fits our roadmap. Once you have come to an agreement, this engineer will
+act as the 'champion' for your proposal in our internal design review process.
+    * The design review group meets weekly so it is possible there will be a lag between the initial
+conversation with your champion and final feedback on the direction of the proposed
+feature/improvement. Once the design review group has reached consensus, the MongoDB engineer will
+let you know and you can begin typing with the confidence that, once done and passing tests,
+your request will be pulled ASAP.
 4. Make the code changes and open a pull request. Note that almost all changes require tests to ensure that the code works as expected. MongoDB developers will review the code changes and run our automation tests against a patch build. If everything looks good, the pull request can be merged.
 
 ##### A note on “Fix Version/s”
