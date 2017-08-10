@@ -106,7 +106,8 @@ If the sent version is **higher** than the shard's own version, the shard refres
 
 **Classes:** [ChunkVersion](https://github.com/mongodb/mongo/blob/r3.4.2-rc0/src/mongo/s/chunk_version.h)
 
-**Internal Documents:** [Shard Versioning Story](https://docs.google.com/a/10gen.com/document/d/1JaClNLh5ENH51X_4xQKUc9E9mNiZHSfRErawEsnROJI/edit?usp=sharing)
+<!-- **Internal Documents:** [Shard Versioning Story](https://docs.google.com/a/10gen.com/document/d/1JaClNLh5ENH51X_4xQKUc9E9mNiZHSfRErawEsnROJI/edit?usp=sharing)
+-->
 
 ## Chunk Migration Protocol
 
