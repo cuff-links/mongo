@@ -49,11 +49,8 @@ SERVER-Specific JIRA FAQs
     We break down specific versions into subcategories. Ordered from most to least pressing, these are:
 
     1.  &lt;Version&gt; Desired (for whichever is due out next, e.g. 3.3.)
-    2.  Planning Bucket A
-    3.  Planning Bucket B
-    4.  Planning Bucket C
-    5.  Planned But Not Scheduled
-    6.  Features We're Not Sure Of
+    2.  Backlog
+    3.  Features We're Not Sure Of
 
 -   What does the [\#neweng label](https://jira.mongodb.org/secure/IssueNavigator.jspa?reset=true&jqlQuery=labels+%3D+neweng) mean?  
     This label exists for tickets that we think are a good entry point for engineers who are new to the codebase. The tickets are small in scope, provide a good learning experience, and/or are otherwise appropriate for a new server contributor.
