@@ -26,4 +26,4 @@ uassert(12345, str::stream() << "bad ns:" << ns, isOk);
 class StringData {
 ```
 
-See also [`bson/stringdata.h`](https://github.com/mongodb/mongo/blob/master/src/mongo/base/string_data.h).
+See also [`bson/string_data.h`](https://github.com/mongodb/mongo/blob/master/src/mongo/base/string_data.h).
