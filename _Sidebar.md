@@ -10,6 +10,7 @@
 **Testing**
 * [Running Tests](Test-The-Mongodb-Server)
 * [Writing Tests](Write-Tests-For-Server-Code)
+* [Writing Benchmarks](Write-Benchmark-Tests)
 * [JavaScript Performance Testing Harness](JavaScript-Performance-Testing-Harness)
 
 **Code Style**
