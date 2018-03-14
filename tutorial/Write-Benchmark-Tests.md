@@ -16,14 +16,30 @@ some deviations to make the user experience closer to that of MongoDB C++ unit t
 
 #include <benchmark/benchmark.h>
 
+#include "mongo/util/processinfo.h"
+
 namespace mongo {
 namespace {
 
-BENCHMARK(BM_Foo)(benchmark::State& state) {
+static void BM_Foo(benchmark::State& state) {
+  if (state.thread_index == 0) {
+    // Setup code here. None of the threads will start until all have
+    // reached the start of the benchmark loop.
+  }
+
   for (auto keepRunning : state) {
     // Test code goes here.
   }
+
+  if (state.thread_index == 0) {
+    // Teardown code here.
+  }
 }
+
+BENCHMARK(BM_Foo)
+  ->Range(1, 1<<4)
+  ->Threads(1, ProcessInfo::getNumAvailableCores());
+
 
 class MyFixture : public benchmark::Fixture {
 public:
@@ -42,7 +58,7 @@ BENCHMARK_F(MyFixture, BM_Bar)(benchmark::State& state) {
   }
 }
 
-BENCHMARK_REGISTER_F(MyFixture, BM_Bar)->Threads(1)->ThreadPerCpu();
+BENCHMARK_REGISTER_F(MyFixture, BM_Bar)-> ... (same options as BENCHMARK())
 
 }  // namespace
 }  // namespace mongo
@@ -68,11 +84,11 @@ Preferred style:
 
 * benchmark functions should be named `BM_UpperCamelCase`.
 * benchmark file names should end with `_bm`, excluding the file extension.
-* Scons `Benchmark` targets *must* end with `_bm`.
+* SCons `Benchmark` targets *must* end with `_bm`.
 
 There are a number of existing tests that serve as good examples:
   
-* [`clock_source_bm.cpp`](https://github.com/mongodb/mongo/blob/cf31435ae65fdb8aaf0311793c0441e6d2172bcb/src/mongo/util/clock_source_bm.cpp)
+* [`clock_source_bm.cpp`](https://github.com/mongodb/mongo/blob/master/src/mongo/util/clock_source_bm.cpp)
 * [`system_resource_canary_bm.cpp`](https://github.com/mongodb/mongo/blob/master/src/mongo/unittest/system_resource_canary_bm.cpp)
 
 #### Best Practices
@@ -170,7 +186,8 @@ itself.
 #### Evergreen Integration
 
 If you're writing benchmarks for a new feature, putting them in a new resmoke suite is recommended 
-to ensure faster feedback.
+to ensure faster feedback. The resmoke suite definitions are in the mongo repository under 
+`buildscripts/resmokeconfig/suites/`.
 
 In your new suite YAML definition, make sure to always include the `system_resource_canary_bm*` 
 test and the `CombineBenchmarkResults` hook.
@@ -183,19 +200,35 @@ test_kind: benchmark_test
 selector:
   root: build/benchmarks.txt
   include_files:
+  # The trailing asterisk is for catching the [.exe] suffix on Windows.
   - build/**/system_resource_canary_bm*
-  - path/to/my/benchmarks
+  - build/**/path/to/my/benchmarks*
 
 executor:
   config: {}
   hooks:
   - class: CombineBenchmarkResults
+```
 
+Also Add your files to the `excluded_files` section of `benchmarks.yml`, which is a fallback suite
+to pick up orphaned benchmarks.
+```yaml
+...
+selector:
+  ...
+  exclude_files:
+  - build/**/path/to/my/benchmarks*
+...
 ```
 
 Use the following template to add a Evergreen task for the `benchmarks_my_feature_name` suite. 
 Ensure that when adding the task to Enterprise RHEL 6, use the specially tuned perf distro, 
 which will provide a better signal to noise ratio.
+
+Unless the suite is for testing platform-specific codepaths, it should be added to Enterprise 
+RHEL 6.2 (on the centos6-perf distro), Enterprise RHEL 7.0 (on the rhel70-small distro), and 
+Enterprise Windows 2008R2 (on the windows-64-vs2015-small distro) build variants to ensure 
+coverage of major MongoDB platforms.
 
 ```yaml
 # etc/evergreen.yml
@@ -208,10 +241,11 @@ which will provide a better signal to noise ratio.
     vars:
       resmoke_args: --suites=benchmarks_my_feature_name
       run_multiple_jobs: false
+  - func: "send benchmark results"
 
 
-# Add the task to a build variant. E.g. for Enterprise RHEL:
-  - name: benchmarks_orphaned
+# Add the task to a build variant.
+  - name: benchmarks_my_feature_name
     distros:
     - centos6-perf
 ```
