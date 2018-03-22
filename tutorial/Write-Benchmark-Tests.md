@@ -1,5 +1,4 @@
-MongoDB has a function level benchmarking library that is based on [Google Benchmark v1.3.0]
-(https://github.com/google/benchmark/tree/v1.3.0), with a few changes to provide a more familiar 
+MongoDB has a function level benchmarking library that is based on [Google Benchmark v1.3.0](https://github.com/google/benchmark/tree/v1.3.0), with a few changes to provide a more familiar 
 interface for MongoDB developers. Compared with system-level performance tests that rely on 
 full-fledged MongoDB servers or even clusters, function-level benchmarks make it easier to isolate 
 certain code segments that may be difficult to test through a complete MongoDB server.
