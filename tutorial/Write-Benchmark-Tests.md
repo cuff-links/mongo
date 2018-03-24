@@ -259,6 +259,14 @@ through resmoke.py will return `0 - actual_latency` in the JSON report file (but
 output); this preserves the "higher is better" semantics, but the `y` axis on the graphs will be 
 negative numbers.
 
+A side effect of negating the latency is that "Thread level - Max Only" will show the max number on
+the Y axis, corresponding to the lowest latency, which is usually the one with the least thread
+contention.
+
+Until [EVG-3009](https://jira.mongodb.org/browse/EVG-3009) is implemented, Benchmark graphs should
+be analyzed with the "All" thread level, to ensure meaningful data for high thread-levels is not
+ignored.
+
 Another difference is that the absolute scale is different between latency and throughput graphs, 
 despite higher being better for both. Since latency is the inverse of throughput, a 50% increase 
 in latency results in only a 33% drop in throughput.
