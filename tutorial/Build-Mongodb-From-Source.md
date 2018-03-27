@@ -17,7 +17,7 @@ To build the master branch, you will need:
   - GCC 5.3.0
   - Clang 3.4 (or Apple XCode 5.1.1 Clang) or newer
 - Python 2.7
-- SCons 2.3.5 or newer (for MSVC 2015 support)
+
 
 To build the 3.2 and 3.0 branches, you will need:
 - A C++11 compiler. One of the following is required:
@@ -83,7 +83,7 @@ Building With SCons
 Building the server executables consists of passing SCons a target; for example, when we build the MongoDB database server executable:
 
 ``` sourceCode
-scons mongod
+buildscripts/scons.py mongod
 ```
 
 On Windows, this will instead be `scons mongod.exe`.
@@ -91,13 +91,13 @@ On Windows, this will instead be `scons mongod.exe`.
 Other executables you may need to build include mongos or mongo, depending on what you are working on. You can pass SCons multiple targets in a list if necessary:
 
 ``` sourceCode
-scons mongod mongo mongos
+buildscripts/scons.py mongod mongo mongos
 ```
 
 Alternatively, you may build everything, which includes mongo, mongod, mongos, and all the C++ unit tests:
 
 ``` sourceCode
-scons all
+buildscripts/scons.py all
 ```
 
 All of these commands should be run from the root of the MongoDB repository.
