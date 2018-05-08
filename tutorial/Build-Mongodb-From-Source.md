@@ -16,6 +16,9 @@ To build the master branch, you will need:
   - VS2015 Update 2 or newer
   - GCC 5.3.0
   - Clang 3.4 (or Apple XCode 5.1.1 Clang) or newer
+- On Linux and macOS, the libcurl library and header is required. MacOS includes libcurl.
+  - Fedora/RHEL - `dnf install libcurl-devel`
+  - Ubuntu/Debian - `apt-get install libcurl-dev`
 - Python 2.7
 
 
