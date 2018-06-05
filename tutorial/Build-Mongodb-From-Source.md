@@ -73,10 +73,7 @@ Installing pip requirements
 # Windows
 pip.exe install -r buildscripts\requirements.txt
 
-# macOS / Linux
-# if python = python 2.7
-python -mpip install --user -r buildscripts/requirements.txt
-# otherwise 
+# macOS / Linux assuming python = python 2.7
 python -mpip install --user -r buildscripts/requirements.txt
 ```
 
