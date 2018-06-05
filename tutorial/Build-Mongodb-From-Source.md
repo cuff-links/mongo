@@ -74,7 +74,10 @@ Installing pip requirements
 pip.exe install -r buildscripts\requirements.txt
 
 # macOS / Linux
-pip install -r buildscripts/requirements.txt
+# if python = python 2.7
+python -mpip install --user -r buildscripts/requirements.txt
+# otherwise 
+python -mpip install --user -r buildscripts/requirements.txt
 ```
 
 All of these commands should be run from the root of the MongoDB repository.
