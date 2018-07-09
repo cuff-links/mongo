@@ -83,10 +83,10 @@ You can also run multiple suites by specifying a comma-separated list:
 python buildscripts/resmoke.py --suites=<SUITE1>,<SUITE2>
 ```
 
-To run specific tests from a suite, include the `--executor` option in order to use the suite's configuration:
+To run specific tests using a suite's configuration, just specify the test name(s) after specifying the suite:
 
 ``` sourceCode
-python buildscripts/resmoke.py --executor=<SUITE> path/to/tests/*.js
+python buildscripts/resmoke.py --suites=<SUITE> path/to/tests/*.js
 ```
 
 To run the tests in parallel, specify the number of jobs using the `--jobs` option:
