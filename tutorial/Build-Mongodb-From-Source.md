@@ -14,7 +14,7 @@ The requirements for building MongoDB vary by branch:
 To build the master branch, you will need:
 - A modern and complete C++11 compiler. One of the following is required:
   - VS2015 Update 2 or newer
-  - GCC 5.3.0
+  - GCC 5.4.0
   - Clang 3.4 (or Apple XCode 5.1.1 Clang) or newer
 - On Linux and macOS, the libcurl library and header is required. MacOS includes libcurl.
   - Fedora/RHEL - `dnf install libcurl-devel`
@@ -29,9 +29,6 @@ To build the 3.2 and 3.0 branches, you will need:
 - Python 2.7
 - SCons 2.3.0 or newer
 
-To build the 2.6 branch, you will need:
-- A C++03 compiler, or VS2010 or newer.
-
 MongoDB uses [SCons](http://www.scons.org/) to build the Server and the shell. While it is unnecessary to know all the intricacies of SCons, glancing over the documentation may be helpful. SCons is unlikely to come preinstalled on your system, so make sure to install it using your preferred package manager.
 
 > **note**
@@ -44,21 +41,19 @@ Other basic requirements, independent of system, are to install [Git](http://git
 
 To build MongoDB you must use one of the following minimum compiler versions:
 
--   Windows: Visual Studio 2013 (i.e. MSVC12) Update 4
--   Linux: GCC 4.8.2
+-   Windows: Visual Studio 2015 (i.e. MSVC14) Update 3
+-   Linux: GCC 5.4.0
 -   OS X: Clang 3.4 of XCode 5
 
 ### System Specific Requirements
 
 Further requirements are system-dependent and for both SCons and running the tests:
 
--   On Linux, you will need to install a compiler `gcc` or `clang`, as well as `glibc` headers which are usually included in a package named `glibc-devel`.
+-   On Linux, you will need to install a compiler `gcc` or `clang`, as well as `glibc` headers which are usually included in a package named `glibc-devel` and `libcurl` headers.
     -   On Debian and Ubuntu systems, you must install the `libssl-dev` package to compile with SSL support.
     -   On Red Hat and CentOS systems, you must install the `openssl-devel` package to compile with SSL support.
 -   On Mac OS X, you will need to install `XCode`, specifically the command line tools.
--   On Windows, you will need to install `Visual Studio 2013` or later. When running on Windows machines, it is recommended to install either [pywin32](http://sourceforge.net/projects/pywin32/) or [ActivePython](http://www.activestate.com/activepython/downloads) if you wish to do parallel builds.
-
-    If using Visual Studio 2013 Express and you receive scons error regarding the unavailability of atomic types, you may need to install [Visual C++ 2008 Redistributable Package](http://www.microsoft.com/en-au/download/details.aspx?id=29).
+-   On Windows, you will need to install `Visual Studio 2015` or later. When running on Windows machines, it is recommended to install either [pywin32](http://sourceforge.net/projects/pywin32/) or [ActivePython](http://www.activestate.com/activepython/downloads) if you wish to do parallel builds.
 
 -   On FreeBSD, the included compiler (`gcc` or `clang`) should suffice, but you will need to install `devel/libexecinfo` from ports or via [pkgng](http://www.freebsd.org/doc/handbook/pkgng-intro.html).
 -   On OpenBSD 5.4 or later, you will need to install `gcc` from ports (`lang/gcc`) or by using [pkg\_add](http://www.openbsd.org/cgi-bin/man.cgi?query=pkg_add&sektion=1) You will also need to install `devel/libexecinfo`.
@@ -149,38 +144,3 @@ git config --get core.autocrlf
 ```
 
 SCons requires Python 2.7.x. On Windows, [ActiveState Python Community Edition](http://www.activestate.com/activepython/downloads) is recommended to support parallel builds. Install either the 64-bit (x64) or 32-bit (x86) version depending on the machine architecture.
-
-To install SCons 2.3.4 with ActiveState Python Community Edition, download the zip distribution of SCons, not the self-extracting exe installer labelled Windows. You must use the zip file, because self-extracting installer cannot find the 64-bit install of ActiveState Python. Unpack the SCons zip file, and if Python is installed at the default path, use the following command:
-
-``` sourceCode
-c:\python27\python.exe setup.py install
-```
-
-MongoDB version 2.4.x supports VS 2010. MongoDB 2.6.x, and 2.7.x support VS 2010, VS 2012, and VS 2013. MongoDB version 3.0.x requires VS 2013.
-
-Finally, to build MongoDB for Windows, you will need to specify whether SCons will target 32-bit or 64-bit. SCons will target 32-bit builds by default. For 64-bit builds, run the following command:
-
-``` sourceCode
-scons --64bit
-```
-
-For 32-bit builds, run the following command:
-
-``` sourceCode
-scons --32bit
-```
-
-Building with Visual Studio 2013 & Later
-----------------------------------------
-
-To build with SCons, first start a `VS2013 x64 Native Tools Command Prompt`, and within this command shell environment, run the SCons commands listed above.
-
-In a typical Visual Studio installation, the batch file to set up the VS 2013 environment has the following path:
-
-``` sourceCode
-%ProgramFiles(x86)%\Microsoft Visual Studio 12.0\vc\bin\amd64\vcvars64.bat
-```
-
-It is also available in the `Visual Studio Tools` folder in the Start Menu.
-
-If using Visual Studio 2013 Express and you receive scons error regarding the unavailability of atomic types, you may need to install [Visual C++ 2008 Redistributable Package](http://www.microsoft.com/en-au/download/details.aspx?id=29).
