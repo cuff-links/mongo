@@ -114,7 +114,7 @@ single call to a `BM_` function, which can take much longer.)
 #### Advanced Usages
 If you like to explore other available functionality the Benchmark framework provides, please 
 refer to 
-[Google Benchmark's execellent documentation](https://github.com/google/benchmark/blob/v1.3.0/README.md). 
+[Google Benchmark's excellent documentation](https://github.com/google/benchmark/blob/v1.3.0/README.md). 
 The rule of thumb is that if a functionality is provided by both Google Benchmark and MongoDB, 
 use the MongoDB version. There are a few differences as a result of this rule, including:
 
