@@ -66,14 +66,19 @@ Installing pip requirements
 
 ```
 # Windows
-pip.exe install -r buildscripts\requirements.txt
+pip.exe install --user -r etc\pip\dev-requirements.txt
 
 # macOS / Linux assuming python = python 2.7
-python -mpip install --user -r buildscripts/requirements.txt
+pip install --user -r etc/pip/dev-requirements.txt
 ```
 
 All of these commands should be run from the root of the MongoDB repository.
 
+> **note**
+> 
+> In the past, instead of `etc/pip/dev-requirements.txt`, there was `buildscripts/requirements.txt`.
+>
+> The `--user` flag installs modules in the user install location. (See [pip documentation](https://pip.pypa.io/en/stable/user_guide/#user-installs).) This flag is not necessary if you have write access to your python distribution's site-packages. Virtualenv environments are recommended to maintain stable and isolated python distributions.
 
 Building With SCons
 -------------------
