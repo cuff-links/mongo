@@ -153,9 +153,9 @@ Similarly, [ToolTest](https://github.com/mongodb/mongo/blob/master/src/mongo/she
 
 This section will cover the basics of each utility, but for more specific information, refer to the source code for each utility.
 
-A great, well-commented example of a JS test using `ReplSetTest`\` is [replset1.js](https://github.com/mongodb/mongo/blob/master/jstests/replsets/replset1.js). The name of the test however is an example of bad test naming; make your test names are meaningful.
+A great, well-commented example of a JS test using `ReplSetTest` is [replset1.js](https://github.com/mongodb/mongo/blob/master/jstests/replsets/replset1.js). The name of the test however is an example of bad test naming; make your test names are meaningful.
 
-Similarly, [cleanup\_orphaned\_cmd.js](https://github.com/mongodb/mongo/blob/master/jstests/sharding/cleanup_orphaned_cmd.js) is a good example of a JS test using `ShardingTest`.
+Similarly, [cleanup\_orphaned\_cmd\_hashed.js](https://github.com/mongodb/mongo/blob/master/jstests/sharding/cleanup_orphaned_cmd_hashed.js) is a good example of a JS test using `ShardingTest`.
 
 For an example of a test that uses `ToolTest`, see [dumprestore2.js](https://github.com/mongodb/mongo/blob/master/jstests/tool/dumprestore2.js).
 
