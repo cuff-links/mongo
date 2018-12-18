@@ -60,6 +60,7 @@ Further requirements are system-dependent and for both SCons and running the tes
 
     When you run SCons, you will also need to pass additional arguments to `scons` to use the compiler from ports instead of the system compiler, i.e. `--cc=egcc --cxx=eg++`.
 
+-  When targeting 64-bit ARM systems (aarch64) you must either explicitly select a CPU targeting that includes CRC32 support by adding `CCFLAGS=-march=armv8-a+crc` to your SCons invocation, or disable hardware CRC32 acceleration with the flag `--use-hardware-crc32=off`. Note that on older branches this flag may be somewhat confusingly called `--use-s390x-crc32=off`, but will still affect ARM builds.
 
 Installing pip requirements
 ---------------------------
@@ -138,6 +139,8 @@ msi|  Builds the Windows MSI installer.
 core|  Builds mongod, mongos, and the mongo shell.
 install|  Installs to the directory used with the `--prefix` option, or to `/usr/local` if no `--prefix` was specified.
 unittests|  Builds the unit tests. The preferred way to run the unit tests is either with resmoke.py or by running the unit test executables. For examples, see run-unit-tests.
+
+Please note that using `ccache` with SCons does not work as expected (see https://jira.mongodb.org/browse/SERVER-38389). We advise not using `ccache` to enable build caching, but to instead use the SCons built-in caching mechanism by adding `--cache` to your SCons invocation. If you must use `ccache`, you can partially work around it by setting `MAXLINELENGTH` to a very high value on the SCons command line. Note that if you use `ccache` by setting, say CC=`ccache g++`, SCons may become unable to detect when your compiler binary changes and may not rebuild files when necessary.
 
 Windows Specific Instructions
 -----------------------------
