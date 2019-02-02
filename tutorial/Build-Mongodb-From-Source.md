@@ -12,7 +12,17 @@ Dependencies & Installation
 The requirements for building MongoDB vary by branch:
 
 To build the master branch, you will need:
-- A modern and complete C++11 compiler. One of the following is required:
+- A modern and complete C++17 compiler. One of the following is required:
+  - VS 2017 version 15.9 or newer
+  - GCC 8.0 or newer
+  - Clang 7 (or Apple XCode 10 Clang) or newer
+- On Linux and macOS, the libcurl library and header is required. MacOS includes libcurl.
+  - Fedora/RHEL - `dnf install libcurl-devel`
+  - Ubuntu/Debian - `apt-get install libcurl-dev`
+- Python 2.7
+
+To build the 3.4, 3.6, and 4.0 branches, you will need:
+- A modern and complete C++11/14 compiler. One of the following is required:
   - VS2015 Update 2 or newer
   - GCC 5.4.0
   - Clang 3.4 (or Apple XCode 5.1.1 Clang) or newer
@@ -37,14 +47,6 @@ MongoDB uses [SCons](http://www.scons.org/) to build the Server and the shell. W
 
 Other basic requirements, independent of system, are to install [Git](http://git-scm.com/) and a recent 2.7.x version of [Python](https://www.python.org/).
 
-### Compiler Requirements
-
-To build MongoDB you must use one of the following minimum compiler versions:
-
--   Windows: Visual Studio 2015 (i.e. MSVC14) Update 3
--   Linux: GCC 5.4.0
--   OS X: Clang 3.4 of XCode 5
-
 ### System Specific Requirements
 
 Further requirements are system-dependent and for both SCons and running the tests:
@@ -53,7 +55,7 @@ Further requirements are system-dependent and for both SCons and running the tes
     -   On Debian and Ubuntu systems, you must install the `libssl-dev` package to compile with SSL support.
     -   On Red Hat and CentOS systems, you must install the `openssl-devel` package to compile with SSL support.
 -   On Mac OS X, you will need to install `XCode`, specifically the command line tools.
--   On Windows, you will need to install `Visual Studio 2015` or later. When running on Windows machines, it is recommended to install either [pywin32](http://sourceforge.net/projects/pywin32/) or [ActivePython](http://www.activestate.com/activepython/downloads) if you wish to do parallel builds.
+-   On Windows, you will need to install Visual Studio. When running on Windows machines, it is recommended to install either [pywin32](http://sourceforge.net/projects/pywin32/) or [ActivePython](http://www.activestate.com/activepython/downloads) if you wish to do parallel builds.
 
 -   On FreeBSD, the included compiler (`gcc` or `clang`) should suffice, but you will need to install `devel/libexecinfo` from ports or via [pkgng](http://www.freebsd.org/doc/handbook/pkgng-intro.html).
 -   On OpenBSD 5.4 or later, you will need to install `gcc` from ports (`lang/gcc`) or by using [pkg\_add](http://www.openbsd.org/cgi-bin/man.cgi?query=pkg_add&sektion=1) You will also need to install `devel/libexecinfo`.
