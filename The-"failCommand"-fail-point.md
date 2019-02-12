@@ -44,7 +44,7 @@ Each parameter is passed as a field in the "data" document provided to "configur
 - errorCode: The error code to include in the server's reply to an affected command.
 - writeConcernError: Subdocument with arbitrary contents. Pass something like ``{code: N, errmsg: "foo"}``.
 - threadName: Which thread should be affected by the failpoint. [New in mongod 4.1.6](https://jira.mongodb.org/browse/SERVER-38054).
-- failInternalCommands: Whether commands from mongod or mongos servers should be affected. If false and mode is "times", commands from mongod or mongos do not count against the "times" argument. Default false. [New in mongod 4.0.6 and 4.1.7](https://jira.mongodb.org/browse/SERVER-34943).
+- failInternalCommands: Whether commands from mongod or mongos servers should be affected. If false and mode is "times", commands from mongod or mongos do not count against the "times" argument. Default false. [New in MongoDB 4.0.6 and 4.1.7](https://jira.mongodb.org/browse/SERVER-34943).
 
 If closeConnection is true, errorCode and writeConcernError have no effect. If closeConnection is false and errorCode is set, writeConcernError has no effect. If only writeConcernError is set, it affects all write commands but no other commands. If closeConnection, errorCode, and writeConcernError are all omitted, the failpoint has no effect.
 
