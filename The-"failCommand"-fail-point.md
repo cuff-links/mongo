@@ -30,14 +30,14 @@ db.adminCommand({configureFailPoint: "failCommand", mode: "off"});
 
 The configureFailpoint command itself is undocumented, the following are parameters relevant to the "failCommand" failpoint:
 
-- mode (required): One of "alwaysOn", "off", or a document like ``{times: N}``, where "N" is a positive integer.
+- mode (required): One of "alwaysOn", "off", a document like ``{times: N}``, where "N" is a positive integer, or a document like ``{activationProbability: D}``, where "D" is a double between 0 and 1.
 - data: A subdocument containing parameters for the "failCommand" failpoint (or any failpoint). Required unless mode is "off".
 
 If the mode is like ``{times: N}``, the failpoint will automatically switch to mode "off" after firing the specified number of times. (See "failInternalCommands" below.)
 
 # failCommand parameters
 
-Each parameter is passed as a field in the "data" document provided to "configureFailPoint". These fields only apply when mode is "alwaysOn" or "times".
+Each parameter is passed as a field in the "data" document provided to "configureFailPoint". The "data" document is ignored if mode is "off".
 
 - failCommands (required): Array of command names that should be affected by the failpoint.
 - closeConnection: Whether the server should hang up when the client sends an affected command. Default false.
