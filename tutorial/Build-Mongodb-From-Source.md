@@ -19,7 +19,7 @@ To build the master branch, you will need:
 - On Linux and macOS, the libcurl library and header is required. MacOS includes libcurl.
   - Fedora/RHEL - `dnf install libcurl-devel`
   - Ubuntu/Debian - `apt-get install libcurl-dev`
-- Python 2.7
+- Python 3.7
 
 To build the 3.4, 3.6, and 4.0 branches, you will need:
 - A modern and complete C++11/14 compiler. One of the following is required:
