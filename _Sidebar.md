@@ -13,6 +13,9 @@
 * [Writing Function-level Benchmarks](Write-Benchmark-Tests)
 * [Writing JavaScript Integration-level Performance Tests](JavaScript-Performance-Testing-Harness)
 
+**Testing in Evergreen**
+* [Running Tests Locally](Running-Tests-from-Evergreen-Tasks-Locally)
+
 **Code Style**
 * [Code Style](Server-Code-Style)
 * [Design Guidelines](Server-Design-Guidelines)
