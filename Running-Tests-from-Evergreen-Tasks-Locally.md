@@ -4,6 +4,7 @@ The _Evergreen task page_ (also commonly just referred to as the _task page_) sh
 status of a test suite and (2) the individual pass/fail status for tests within the test suite. As a
 result of the effort to have shorter Evergreen tasks which are able to be run in parallel on
 separate machines, Evergreen added a notion of _display tasks_ which group the results of multiple
+tasks together on the same task page. The tasks which comprise a display task are referred to as
 _execution tasks_. An execution task is simply a task that actually ran on a machine.
 
 Certain information about how a task ran on a machine is only present on the task page for the
@@ -13,12 +14,12 @@ execution task rather than the task page for the parent display task. More on th
 
 The _test results pane_ is present on both the task page for each execution task and for the parent
 display task. It shows the individual pass/fail status for tests within the test suite, along with
-links to Logkeeper containing the test output. The _test logs_ include any log output from the test
-binary (e.g. the mongo shell for any JavaScript integration tests) and any log output from the
-MongoDB cluster (if one is started by the test suite) from while the test was running. The "HTML"
-links go to _Lobster_, a browser-based log viewer that works pretty well for large amounts of log
-data. The "Raw" links are suitable for using `curl` or `wget` to download the logs and then view
-them locally.
+links to https://logkeeper.mongodb.org containing the test output. The _test logs_ include any log
+output from the test binary (e.g. the mongo shell for any JavaScript integration tests) and any log
+output from the MongoDB cluster (if one is started by the test suite) from while the test was
+running. The "HTML" links go to _Lobster_, a browser-based log viewer that works pretty well for
+large amounts of log data. The "Raw" links are suitable for using `curl` or `wget` to download the
+logs and then view them locally.
 
 ![test_results_pane](images/test_results_pane.png)
 
@@ -40,9 +41,9 @@ copy-paste to run **the entire test suite** locally. For example:
 ```
 
 If you're only interested in running a single test from the test suite, then specify the path to the
-test file after all of the arguments in the above invocation. **Protip**: The first line in the test
-logs will be a "Starting ..." message which contains the path to the test file relative to the root
-of the mongodb/mongo repository.
+test file after all of the arguments in the above invocation. **Protip**: Near the beginning of the
+test logs will be a "Starting ..." message which contains the path to the test file relative to the
+root of the mongodb/mongo repository.
 
 ```
 [js_test:transactions_multi_writes] 2019-04-19T21:02:11.112+0000 Starting JSTest jstests/sharding/transactions_multi_writes.js...
@@ -62,6 +63,9 @@ Note that if you're attempting to run a multi-version test suite (see below) the
 ```
 PATH=/data/multiversion:$PATH buildscripts/resmoke.py --suites=multiversion ...
 ```
+
+**Protip**: Consider permanently adding the `/data/multiversion/` directory to your `PATH` by
+updating your `.bashrc`, `.zshrc`, etc.
 
 # Additional setup required
 
@@ -117,7 +121,8 @@ python buildscripts/setup_multiversion_mongodb.py --installDir /data/install --l
 
 ## Fuzzer test suites
 
-Fuzzer test suites encompass anything which use the
+Refer to [Wikipedia's article on fuzzing](https://en.wikipedia.org/wiki/Fuzzing) to learn more about
+fuzz testing in general. MongoDB fuzzer test suites encompass anything which use the
 [10gen/jstestfuzz](https://github.com/10gen/jstestfuzz) repository to randomly generate test files
 that are later run by resmoke.py. All of Evergreen tasks that do this contain the word "fuzz" from
 either "jstestfuzz" or "fuzzer" being in their name.
@@ -135,4 +140,22 @@ mongodb/mongo repository.
 mkdir -p jstestfuzz
 rm -rf jstestfuzz/out/*
 curl -s https://s3.amazonaws.com/mciuploads/... | tar -C jstestfuzz/ -zxv
+```
+
+The final layout should look like `jstestfuzz/out/<lots of .js files>`.
+
+```
+$ tree jstestfuzz/
+jstestfuzz/
+└── out
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-0.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-1.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-2.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-3.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-4.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-5.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-6.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-7.js
+    ├── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-8.js
+    └── jstestfuzz-ba13-ent_acdd-qa_a6ce-1556051746371-9.js
 ```
