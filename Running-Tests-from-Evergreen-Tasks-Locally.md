@@ -111,12 +111,15 @@ your local environment.
 
 ### macOS example
 
-Use `--platform osx` and `--architecture x86_64`.
+Use `--platform macos` (or `--platform osx` as appropriate) and `--architecture x86_64`.
 
 ```
 mkdir -p /data/install /data/multiversion
 rm -rf /data/install/* /data/multiversion/*
+# Use `--platform osx` for versions earlier than MongoDB 4.2
 python buildscripts/setup_multiversion_mongodb.py --installDir /data/install --linkDir /data/multiversion --edition enterprise --platform osx --architecture x86_64 --useLatest 3.2 3.4 3.6 4.0 4.0.1 4.0.5
+# Use `--platform macos` for versions MongoDB 4.2 and later.
+python buildscripts/setup_multiversion_mongodb.py --installDir /data/install --linkDir /data/multiversion --edition enterprise --platform macos --architecture x86_64 --useLatest 4.2
 ```
 
 ## Fuzzer test suites
