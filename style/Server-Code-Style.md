@@ -248,7 +248,7 @@ For `h` files
 -   `#pragma once` at the top, after the licence
 -   Include third party headers first, sorted. blank line.
 -   Include local headers last, sorted.
--   Forward declare, if possible, in lieu of including local headers in headers. Only include things that are directly used in the header itself.
+-   It's generally preferable to #include any headers you need. Forward-declaring type tags from other headers is permissible only when doing so is necessary, such as to break an #include cycle. Forward declaring symbols other than type tags, such as functions or variables, is forbidden.
 -   Do not include platform/basic.h in a header; assume that all source files will include it prior to including the header.
 
 For `js` files
@@ -356,5 +356,4 @@ To format code:
 ``` sourceCode
 python buildscripts/clang_format.py format
 ```
-
 
