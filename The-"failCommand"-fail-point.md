@@ -61,7 +61,3 @@ const getThreadName = function() {
 The behavior of the configureFailpoint command itself is never affected by the failCommand failpoint.
 
 The logic to decide whether a command is affected by the failCommand failpoint is implemented in ``CommandHelpers::shouldActivateFailCommandFailPoint()``, and its effect upon the command is implemented in ``CommandHelpers::evaluateFailCommandFailPoint()``.
-
-# Possible backport
-
-The Drivers Team has [requested that failCommand be backported to mongod and mongos 3.6](https://jira.mongodb.org/browse/SERVER-39478).
