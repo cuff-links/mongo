@@ -11,7 +11,7 @@ db.adminCommand({
     mode: "alwaysOn",
     data: {errorCode: 2, failCommands: ["find"]}
 });
-// Returns {ok: 0, code: 2}
+// Returns {ok: 0, count: 0, code: 2}
 db.runCommand({find: "collection"});
 db.adminCommand({configureFailPoint: "failCommand", mode: "off"});
 ```
@@ -23,6 +23,16 @@ assert.commandWorked(db.adminCommand({
     data: {errorCode: ErrorCodes.BadValue, failCommands: ["find"]}
 }));
 assert.commandFailedWithCode(db.runCommand({find: "collection"}), ErrorCodes.BadValue);
+db.adminCommand({configureFailPoint: "failCommand", mode: "off"});
+```
+As shown above, the configureFailPoint command returns "count" which is the number of times the failpoint has been entered up until that point. To wait for a failpoint to be hit, use the waitForFailPoint command. The command takes in the target number of times and maxTimeMS, and blocks until the fail point has been entered that number of times or until it times out. So in the example above, one can wait for the "failCommand" failpoint by doing: 
+```js
+let count = db.adminCommand({
+    configureFailPoint: "failCommand",
+    mode: "alwaysOn",
+    data: {errorCode: 2, failCommands: ["find"]}
+}).count;
+db.adminCommand({waitForFailPoint: 'failCommand', timesEntered: count+1, maxTimeMS: 1000});
 db.adminCommand({configureFailPoint: "failCommand", mode: "off"});
 ```
 
