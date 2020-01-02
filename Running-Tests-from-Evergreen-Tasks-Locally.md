@@ -31,6 +31,9 @@ resmoke.py.
 
 ![log_nav](images/log_nav.png)
 
+If a test is configured to archive its data files, then links to the tarballs for the data files will appear on the task page. Examining them may be useful to diagnosing data inconsistency issues. More information about archived data files can be found [here](Archived-Data-Files).
+
+
 # Building up the resmoke.py invocation
 
 The task logs will contain a "resmoke.py invocation for local usage" log message which you can

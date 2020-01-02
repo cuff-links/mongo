@@ -15,6 +15,7 @@
 
 **Testing in Evergreen**
 * [Running Tests Locally](Running-Tests-from-Evergreen-Tasks-Locally)
+* [Archived Data Files](Archived-Data-Files)
 
 **Code Style**
 * [Code Style](Server-Code-Style)
