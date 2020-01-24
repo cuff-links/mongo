@@ -7,7 +7,7 @@ When resmoke executes a test, it only archives the data files for the mongod fix
 
 The [concurrency_replication suite](https://github.com/mongodb/mongo/blob/master/buildscripts/resmokeconfig/suites/concurrency_replication.yml), on the other hand, archives data files when there is a failure in the `CheckReplDBHashInBackround` hook, `ValidateCollectionsInBackground` hook, `CheckReplDBHash` hook, `ValidateCollections` hook, or **any js test**:
 
-![concurrency_replication_archive_configuration](images/core_archive_configuration.png)
+![concurrency_replication_archive_configuration](images/concurrency_replication_archive_configuration.png)
 
 Note that `tests` may be a boolean or a list of tests.
 
