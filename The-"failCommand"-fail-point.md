@@ -51,6 +51,8 @@ Each parameter is passed as a field in the "data" document provided to "configur
 
 - failCommands (required): Array of command names that should be affected by the failpoint.
 - closeConnection: Whether the server should hang up when the client sends an affected command. Default false.
+- blockConnection: Whether the server should block the affected commands. Default false.
+- blockTimeMS: The number of milliseconds the affect commands should be blocked for. Required when blockConnection is true.
 - errorCode: The error code to include in the server's reply to an affected command.
 - writeConcernError: Subdocument with arbitrary contents. Pass something like ``{code: N, errmsg: "foo"}``.
 - threadName: Which thread should be affected by the failpoint. [New in mongod 4.1.6](https://jira.mongodb.org/browse/SERVER-38054).
