@@ -14,16 +14,16 @@ JIRA is the system we use to track feature requests, bug reports and other reque
 -   [Scala Driver JIRA Project](https://jira.mongodb.org/browse/SCALA)
 -   [Hadoop Connector JIRA Project](https://jira.mongodb.org/browse/HADOOP)
 
-Guidelines for Choosing a Ticket
---------------------------------
+Guidelines for Choosing a SERVER Ticket
+---------------------------------------
 
 Anyone can file a JIRA ticket, and some tickets may be vague, underspecified, or out of date. Some tickets may be feature requests that cannot or will not be implemented because the request may be incompatible with planned changes or is a feature that would have a greater negative impact than positive.
 
 The following lists some guidelines to help you choose a ticket:
 
-1.  **Choose a ticket that is unassigned.**
-2.  **Do not choose a ticket with Fix Version "Features we're not sure of" or "Needs triage".** "Needs triage" is the default fix version for new tickets. Both of these versions indicate that we haven't decided how the ticket will fit into our roadmap.
-3.  **Aim for a ticket with Fix Version of the next version.** For example, if the current stable release is 2.6, you want to aim for something in the "2.7 desired" fix version.
+1.  **Choose a ticket that is unassigned or only assigned to a user starting with "Backlog".**
+2.  **Do not choose a ticket with status other than "Open".
+3.  **Aim for a ticket with Fix Version of the next version.** For example, if the current stable release is 4.4, you want to aim for something in the "4.5 Required" or "4.5 Desired" fix version.
 4.  **Choose a ticket with detailed and specific description.** A more thorough specification improves your chances of implementing the changes in a non-breaking way.
 5.  **Avoid tickets with debates over the implementation details in the comments.** Approvals are less likely for changes based on a controversial tickets.
 6.  **Look for tickets without any or fewer cross-dependencies.** A ticket that has numerous links to other tickets, depends on other tickets, or have other tickets depend upon it require more research and can be difficult to implement correctly without being in close contact with the persons implementing the others tickets.
@@ -50,12 +50,9 @@ SERVER-Specific JIRA FAQs
 
     1.  &lt;Version&gt; Desired (for whichever is due out next, e.g. 3.3.)
     2.  Backlog
-    3.  Features We're Not Sure Of
 
 -   What does the [\#neweng label](https://jira.mongodb.org/secure/IssueNavigator.jspa?reset=true&jqlQuery=labels+%3D+neweng) mean?  
     This label exists for tickets that we think are a good entry point for engineers who are new to the codebase. The tickets are small in scope, provide a good learning experience, and/or are otherwise appropriate for a new server contributor.
 
 -   Is there any way to get feedback on the ticket I picked?  
     Yes. Once you have picked a ticket, you can email the [mongodb-dev mailing list](https://groups.google.com/forum/#!forum/mongodb-dev) to get feedback on your chosen ticket. This mailing list is specifically for anyone interested in contributing to the database or building third party tools around and is a great resource for feedback throughout the process of contributing to the server.
-
-
