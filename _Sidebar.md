@@ -25,8 +25,4 @@
 **Server Internals**
 * [Sharding Internals](Sharding-Internals)
 * [Replication Internals](Replication-Internals)
-* [Exception Architecture](Server-Exception-Architecture)
 * [Logging Rules](Server-Logging-Rules)
-* [Memory Management](Server-Memory-Management)
-* [Parsing Stack Traces](Parsing-Stack-Traces)
-* [String Manipulation](Server-String-Manipulation)
