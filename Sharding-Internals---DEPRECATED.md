@@ -1,3 +1,9 @@
+# Deprecation Note!
+
+There is a [newer sharding internals guide](https://github.com/mongodb/mongo/blob/master/src/mongo/db/s/README.md) that lives in the codebase itself that was written in spring 2020 as of the v4.4 release of MongoDB.
+
+The guide below was written in spring 2017 as of the v3.4 release of MongoDB.
+
 # Sharding
 
 This document provides MongoDB server engineers and community contributors with a "mental map" of sharding components and code.
