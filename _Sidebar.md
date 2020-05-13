@@ -25,4 +25,4 @@
 **Server Internals**
 * [Sharding Internals](Sharding-Internals)
 * [Replication Internals](Replication-Internals)
-* [Logging Rules - obsolete](Server-Logging-Rules)
+* [Logging Rules - obsolete](Server-Logging-Rules-(obsolete))
