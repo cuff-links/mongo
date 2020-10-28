@@ -154,7 +154,7 @@ int bar;
 Assertions
 ----------
 
-See Kernel exception architecture &lt;server-exception-architecture&gt;
+See [Kernel exception architecture documentation](https://github.com/mongodb/mongo/blob/master/docs/exception_architecture.md);
 
 Return Early
 ------------
