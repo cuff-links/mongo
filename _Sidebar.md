@@ -25,4 +25,6 @@
 **Server Internals**
 * [Sharding Internals](Sharding-Internals)
 * [Replication Internals](Replication-Internals)
+* [Storage Execution Layer Internals](https://github.com/mongodb/mongo/tree/master/src/mongo/db/catalog)
+* [Storage Engine API](https://github.com/mongodb/mongo/tree/master/src/mongo/db/storage)
 * [Logging Rules - obsolete](Server-Logging-Rules-(obsolete))
