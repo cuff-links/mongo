@@ -27,4 +27,9 @@
 * [Replication Internals](Replication-Internals)
 * [Storage Execution Layer Internals](https://github.com/mongodb/mongo/tree/master/src/mongo/db/catalog)
 * [Storage Engine API](https://github.com/mongodb/mongo/tree/master/src/mongo/db/storage)
+* Security Internals
+  * [Authentication & Authorization](https://github.com/mongodb/mongo/tree/master/src/mongo/db/auth/README.md)
+  * [TLS](https://github.com/mongodb/mongo/tree/master/src/mongo/util/net/README.md)
+  * [FTDC](https://github.com/mongodb/mongo/blob/master/src/mongo/db/ftdc/README.md)
+  * [Free Monitoring](https://github.com/mongodb/mongo/blob/master/src/mongo/db/free_mon/README.md)
 * [Logging Rules - obsolete](Server-Logging-Rules-(obsolete))
