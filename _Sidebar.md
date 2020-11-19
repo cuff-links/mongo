@@ -23,8 +23,8 @@
 * [Style Guidelines](Style-Guidelines)
 
 **Server Internals**
-* [Sharding Internals](Sharding-Internals)
-* [Replication Internals](Replication-Internals)
+* [Sharding Internals](https://github.com/mongodb/mongo/blob/master/src/mongo/db/s/README.md)
+* [Replication Internals](https://github.com/mongodb/mongo/blob/master/src/mongo/db/repl/README.md)
 * [Storage Execution Layer Internals](https://github.com/mongodb/mongo/tree/master/src/mongo/db/catalog)
 * [Storage Engine API](https://github.com/mongodb/mongo/tree/master/src/mongo/db/storage)
 * Security Internals
