@@ -25,8 +25,8 @@
 **Server Internals**
 * [Sharding Internals](https://github.com/mongodb/mongo/blob/master/src/mongo/db/s/README.md)
 * [Replication Internals](https://github.com/mongodb/mongo/blob/master/src/mongo/db/repl/README.md)
-* [Storage Execution Layer Internals](https://github.com/mongodb/mongo/tree/master/src/mongo/db/catalog)
-* [Storage Engine API](https://github.com/mongodb/mongo/tree/master/src/mongo/db/storage)
+* [Execution Layer Internals](https://github.com/mongodb/mongo/tree/master/src/mongo/db/catalog/README.md)
+* [Storage Engine API](https://github.com/mongodb/mongo/tree/master/src/mongo/db/storage/README.md)
 * Security Internals
   * [Authentication & Authorization](https://github.com/mongodb/mongo/tree/master/src/mongo/db/auth/README.md)
   * [TLS](https://github.com/mongodb/mongo/tree/master/src/mongo/util/net/README.md)
