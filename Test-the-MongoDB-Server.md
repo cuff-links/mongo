@@ -38,7 +38,7 @@ git grep -l <command>
 
 ### Test Using `resmoke.py`
 
-The `buildscripts` directory contains the file resmoke.py. With resmoke.py, you can run a subset of the tests in jstests/.
+The `buildscripts` directory contains the file resmoke.py. With resmoke.py, you can run a subset of the tests in `jstests/`.
 
 For most test suites, resmoke.py starts up an instance of mongod, runs the tests, and then shuts down the mongod. You can run resmoke.py while running other instances of mongod on the same machine; resmoke.py will use ports in a configurable range for any mongod instances it starts and provide them with their own data directories.
 
@@ -49,18 +49,18 @@ For most test suites, resmoke.py starts up an instance of mongod, runs the tests
 
 You must run resmoke.py from the top-level directory of a MongoDB source repository. At minimum, this directory must contain the mongo and mongod binaries. For certain tests, you will also need to build the tools (see /contributors/tutorial/build-tools-from-source) and the mongos binary, and put them in this directory as well.
 
-To run resmoke.py, you need a recent version of [PyMongo](http://api.mongodb.org/python/current/installation.html) and [PyYaml](http://pyyaml.org).
+To run resmoke.py, install its pip dependencies defined in `etc/pip/dev-requirements.txt`.
 
 To see the possible options for resmoke.py, run:
 
 ``` sourceCode
-python buildscripts/resmoke.py --help
+python buildscripts/resmoke.py run --help
 ```
 
 To run specific tests, simply list them:
 
 ``` sourceCode
-python buildscripts/resmoke.py jstests/core/find1.js jstests/core/explain*.js
+python buildscripts/resmoke.py run jstests/core/find1.js jstests/core/explain*.js
 ```
 
 You can specify as many files as you want.
@@ -68,31 +68,31 @@ You can specify as many files as you want.
 We have also defined test suite configurations in the buildscripts/resmokeconfig/suites directory. To see which suites are available, run:
 
 ``` sourceCode
-python buildscripts/resmoke.py --listSuites
+python buildscripts/resmoke.py list-suites
 ```
 
 To run a specific suite, use:
 
 ``` sourceCode
-python buildscripts/resmoke.py --suites=<SUITE>
+python buildscripts/resmoke.py run --suites=<SUITE>
 ```
 
 You can also run multiple suites by specifying a comma-separated list:
 
 ``` sourceCode
-python buildscripts/resmoke.py --suites=<SUITE1>,<SUITE2>
+python buildscripts/resmoke.py run --suites=<SUITE1>,<SUITE2>
 ```
 
 To run specific tests using a suite's configuration, just specify the test name(s) after specifying the suite:
 
 ``` sourceCode
-python buildscripts/resmoke.py --suites=<SUITE> path/to/tests/*.js
+python buildscripts/resmoke.py run --suites=<SUITE> path/to/tests/*.js
 ```
 
 To run the tests in parallel, specify the number of jobs using the `--jobs` option:
 
 ``` sourceCode
-python buildscripts/resmoke.py --suites=<SUITE> --jobs=<N>
+python buildscripts/resmoke.py run --suites=<SUITE> --jobs=<N>
 ```
 
 > **note**
@@ -113,7 +113,7 @@ scons dbtest
 This compiles the source for all dbtests into a single executable called `dbtest`. You can run all the dbtests in parallel by using \`resmoke.py\`:
 
 ``` sourceCode
-python buildscripts/resmoke.py --suites=dbtest --jobs=<N>
+python buildscripts/resmoke.py run --suites=dbtest --jobs=<N>
 ```
 
 To list the available dbtests, call:
@@ -146,7 +146,7 @@ To run all new-style C++ unit tests:
 2.  Use resmoke.py to run all of them. To decrease the execution time, specify multiple jobs:
 
     ``` sourceCode
-    python buildscripts/resmoke.py --suites=unittests --jobs=<N>
+    python buildscripts/resmoke.py run --suites=unittests --jobs=<N>
     ```
 
 In some cases, you may just want to run one or two of the unit tests. For example, the following explicitly builds and runs a single C++ unit test `mutable_bson_test`:
