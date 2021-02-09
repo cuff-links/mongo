@@ -68,7 +68,7 @@ Inlines
 Strings
 -------
 
-See util/mongoutils/str.h and bson/stringdata.h
+See util/str.h and base/string_data.h
 
 -   Use
 
