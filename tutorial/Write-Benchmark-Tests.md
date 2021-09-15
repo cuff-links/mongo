@@ -126,7 +126,7 @@ Benchmark's version.
 
 #### Running a benchmark through resmoke.py
 
-`python2 buildscripts/resmoke.py --suite=benchmarks [/optional/path/to/benchmark/test/binary]`
+`./buildscripts/resmoke.py run --suite=benchmarks [/optional/path/to/benchmark/test/binary]`
 
 The results from the above command will be printed to the console and look like the following.
 
