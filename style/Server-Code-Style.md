@@ -54,7 +54,6 @@ Refer to getting-started-coding-style-guidelines for basic guidelines. Otherwise
 Inlines
 -------
 
--   If you must have long inline functions, put them in a [-inl.h](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#The_-inl.h_Files) file.
 -   If your inline function is a single line long, put it and its decl on separate lines:
 
     ``` sourceCode
