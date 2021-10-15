@@ -49,7 +49,7 @@ Use camelCase for most `varNames`. Use ProperCase for names of classes and struc
 Comments
 --------
 
-Refer to getting-started-coding-style-guidelines for basic guidelines. Otherwise, default to [Google C++ Style Guide](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Comments) for placement of comments.
+Refer to getting-started-coding-style-guidelines for basic guidelines. Otherwise, default to [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Comments) for placement of comments.
 
 Inlines
 -------
