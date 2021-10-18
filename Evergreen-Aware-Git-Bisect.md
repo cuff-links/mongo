@@ -9,7 +9,7 @@ buildscripts/resmoke.py bisect
   --script    [shell script to indicate presence of bug]
   --python-installation [(optional) path to python3.7+]
 ```
-To use this command, all that is needed is to write the shell `--script` which runs against a mongo version and returns `0` upon successful execution. The `--script` will be run from within the `build/resmoke-bisect` directory described below.
+To use this command, all that is needed is to write the shell `--script` which runs against a mongo version and returns `0` upon successful execution. The `--script` will be run from within the `build/resmoke-bisect` directory described [below](https://github.com/mongodb/mongo/wiki/Evergreen-Aware-Git-Bisect#bisect).
 ## Bisect
 All versions for the given `--branch`, `--variant` and `--lookback` period are fetched from Evergreen. 
 
