@@ -1,3 +1,4 @@
+## TLDR
 `bisect` will print the **last known passing version** and **first known failing version** of _mongo_ for a `--branch`, `--variant` and `--lookback` period, with respect to a user provided shell `--script`.
 ## Usage
 `bisect` can be invoked from within the mongo repo like so:
@@ -22,12 +23,13 @@ mongocryptd		mongodecrypt		mongoldap		mongos			mqlrun
 The `--script` is run from within this `build/resmoke-bisect` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
 
 The **last known passing version** and **first known failing version** print to `stdout`
-## Note
-This `bisect` command assumes a perfect partition between passing & failing versions.
+## Notes
+1. This `bisect` command assumes a perfect partition between passing & failing versions. ie: `[Pass, Pass, Pass, Fail, Fail, Fail]`. If there is not a perfect partition, this command will not work as expected. If there is not a perfect partition, try modifying the `--lookback` period or shell `--script`.
 
-ie: [Pass, Pass, Pass, Fail, Fail, Fail]
+2. Bisecting to beyond a year may not be supported since Evergreen artifacts are only stored for a year.
 
-If there is not a perfect partition, this command will not work as expected. If there is not a perfect partition, try modifying the `--lookback` period or shell `--script`.
+3. Older versions will have different syntax, so you may need to run `resmoke.py` instead of `resmoke.py run` if the latter fails in the shell script. 
+
 ## Help
 ```
 buildscripts/resmoke.py bisect --help
