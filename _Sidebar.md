@@ -12,6 +12,7 @@
 * [Writing Tests](Write-Tests-For-Server-Code)
 * [Writing Function-level Benchmarks](Write-Benchmark-Tests)
 * [Writing JavaScript Integration-level Performance Tests](JavaScript-Performance-Testing-Harness)
+* [Running Bisect](Evergreen-Aware-Git-Bisect)
 
 **Testing in Evergreen**
 * [Running Tests Locally](Running-Tests-from-Evergreen-Tasks-Locally)
