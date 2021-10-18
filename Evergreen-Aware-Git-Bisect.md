@@ -19,7 +19,7 @@ bisect_venv		mongo_repo		mongobridge		mongod			mongokerberos
 mongoqd			mongotmock		wt                      mongo			mongoauditdecrypt	
 mongocryptd		mongodecrypt		mongoldap		mongos			mqlrun
 ```
-The `--script` is run from within the `build/resmoke-bisect` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
+The `--script` is run from within this `build/resmoke-bisect` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
 
 The **last known passing version** and **first known failing version** print to `stdout`
 ## Note
