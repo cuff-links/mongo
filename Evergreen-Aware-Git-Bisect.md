@@ -22,7 +22,7 @@ mongocryptd		mongodecrypt		mongoldap		mongos			mqlrun
 ```
 The `--script` is run from within this `build/resmoke-bisect` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
 
-The **last known passing version** and **first known failing version** print to `stdout`
+The **last known passing version** and **first known failing version** are print to `stdout`.
 ## Notes
 1. This `bisect` command assumes a perfect partition between passing & failing versions. ie: `[Pass, Pass, Pass, Fail, Fail, Fail]`. If there is not a perfect partition, this command will not work as expected. If there is not a perfect partition, try modifying the `--lookback` period or shell `--script`.
 
