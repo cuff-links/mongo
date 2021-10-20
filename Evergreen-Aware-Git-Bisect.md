@@ -30,7 +30,7 @@ This is what the `build/resmoke-bisect/{version_id}` directory may look like - w
 all_feature_flags.txt  compile_expansions.yml etc                    jstests                mongoauditdecrypt      mongocryptd            mongodecrypt           mongoldap              mongos                 mqlrun                 wt
 buildscripts           dist-test              evergreen              mongo                  mongobridge            mongod                 mongokerberos          mongoqd                mongotmock             src
 ```
-The `--script` is run from within this `build/resmoke-bisect/{version_id}` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
+The `--script` is run from within this `build/resmoke-bisect/{version_id}` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. The `build/resmoke-bisect` directory is deleted and this process is repeated until the algorithm completes.
 
 The **last known passing version** and **first known failing version** are print to `stdout`.
 ## Notes
