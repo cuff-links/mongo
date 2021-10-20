@@ -10,17 +10,27 @@ buildscripts/resmoke.py bisect
   --script    [shell script to indicate presence of bug]
   --python-installation [(optional) path to python3.7+]
 ```
-To use this command, all that is needed is to write the shell `--script` which runs against a mongo version and returns `0` upon successful execution or `non-zero` upon failure. The `--script` will be run from within the `build/resmoke-bisect` directory described [below](https://github.com/mongodb/mongo/wiki/Evergreen-Aware-Git-Bisect#bisect).
+To use this command, all that is needed is to write the shell `--script` which runs against a mongo version and returns `0` upon successful execution or `non-zero` upon failure. The `--script` will be run from within the `build/resmoke-bisect/{version_id}` directory described [below](https://github.com/mongodb/mongo/wiki/Evergreen-Aware-Git-Bisect#bisect).
+
+### Sample Script
+```
+set -e
+python buildscripts/resmoke.py run --suites=sharding ./jstests/sharding/shard_aware_init.js
+```
+
 ## Bisect
 All versions for the given `--branch`, `--variant` and `--lookback` period are fetched from Evergreen. 
 
-The _repo, binaries, artifacts and virtual environment_ are downloaded to the `build/resmoke-bisect` directory for the _middle version_. This is what the `build/resmoke-bisect` directory may look like — where `mongo_repo` is the github repo and `bisect_venv` is the virtual environment:
+The _repo, binaries, artifacts and virtual environment_ are downloaded to the `build/resmoke-bisect` directory for the _middle version_. This is what the `build/resmoke-bisect` directory may look like — where `{version_id}` is the github repo and `bisect_venv` is the virtual environment:
 ```
-bisect_venv		mongo_repo		mongobridge		mongod			mongokerberos		
-mongoqd			mongotmock		wt                      mongo			mongoauditdecrypt	
-mongocryptd		mongodecrypt		mongoldap		mongos			mqlrun
+bisect_venv             {version_id}
 ```
-The `--script` is run from within this `build/resmoke-bisect` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
+This is what the `build/resmoke-bisect/{version_id}` directory may look like - where the binaries are downloaded.
+```
+all_feature_flags.txt  compile_expansions.yml etc                    jstests                mongoauditdecrypt      mongocryptd            mongodecrypt           mongoldap              mongos                 mqlrun                 wt
+buildscripts           dist-test              evergreen              mongo                  mongobridge            mongod                 mongokerberos          mongoqd                mongotmock             src
+```
+The `--script` is run from within this `build/resmoke-bisect/{version_id}` directory. If it completes successfully, `bisect` continues on newer versions. Else, if it fails, `bisect` continues on older versions. This is repeated until the algorithm completes.
 
 The **last known passing version** and **first known failing version** are print to `stdout`.
 ## Notes
