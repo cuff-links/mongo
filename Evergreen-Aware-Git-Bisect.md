@@ -25,7 +25,7 @@ The _repo, binaries, artifacts and virtual environment_ are downloaded to the `b
 ```
 bisect_venv             {version_id}
 ```
-This is what the `build/resmoke-bisect/{version_id}` directory may look like - where the binaries are downloaded.
+This is what the `build/resmoke-bisect/{version_id}` directory may look like - where the files for that version and binaries are downloaded.
 ```
 all_feature_flags.txt  compile_expansions.yml etc                    jstests                mongoauditdecrypt      mongocryptd            mongodecrypt           mongoldap              mongos                 mqlrun                 wt
 buildscripts           dist-test              evergreen              mongo                  mongobridge            mongod                 mongokerberos          mongoqd                mongotmock             src
