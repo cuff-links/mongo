@@ -39,6 +39,14 @@ Basics
      */
     ```
 
+-   Enterprise source code is not SSPL, therefore has to carry shorten header:
+
+    ``` sourceCode
+    /**
+     *    Copyright (C) 2021-present MongoDB, Inc.
+     */
+    ```
+
 -   For anything that isn't explicitly covered here, default to the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) and the [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml).
 
 Case
