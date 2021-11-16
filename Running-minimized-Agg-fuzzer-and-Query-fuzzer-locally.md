@@ -1,4 +1,4 @@
-If there is a fuzzer-generated test failure, a _minimized jstestfuzz test_ will be generated from the original to reduce test size & complexity.  Minimized jstestfuzz tests & minimized data will be available for download in the files section in the Evergreen task page displayed as:
+If there is an agg or query fuzzer-generated test failure, a _minimized jstestfuzz test_ will be generated from the original to reduce test size & complexity.  Minimized jstestfuzz tests & minimized data will be available for download in the files section in the Evergreen task page displayed as:
 1. **Minimized jstestfuzz Test - [Execution #]**
     - _minimizer-outputs-minimizedtest-[build_id].js_
 2. **Minimizer Outputs - [Execution #]**
