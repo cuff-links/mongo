@@ -1,4 +1,4 @@
-If there is a fuzzer-generated test failure, a minimized jstestfuzz test will be generated from the original to reduce test size & complexity.  Minimized jstestfuzz tests will be available for download in the files section in the Evergreen task page. 
+If there is a fuzzer-generated test failure, a _minimized jstestfuzz test_ will be generated from the original to reduce test size & complexity.  Minimized jstestfuzz tests will be available for download in the files section in the Evergreen task page. 
 
 You can run the minimized test with the following command after setting up a repro environment:
 
