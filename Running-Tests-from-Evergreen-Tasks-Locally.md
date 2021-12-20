@@ -40,7 +40,7 @@ The task logs will contain a "resmoke.py invocation for local usage" log message
 copy-paste to run **the entire test suite** locally. For example:
 
 ```
-[2019/04/19 21:01:34.375] [resmoke] 2019-04-19T21:01:34.374+0000 resmoke.py invocation for local usage: buildscripts/resmoke.py --suites=sharding --storageEngine=wiredTiger --continueOnFailure --jobs=16 --repeat=1 --shuffleMode=on --storageEngineCacheSizeGB=1
+[2019/04/19 21:01:34.375] [resmoke] 2019-04-19T21:01:34.374+0000 resmoke.py invocation for local usage: buildscripts/resmoke.py run --suites=sharding --storageEngine=wiredTiger --continueOnFailure --jobs=16 --repeat=1 --shuffleMode=on --storageEngineCacheSizeGB=1
 ```
 
 If you're only interested in running a single test from the test suite, then specify the path to the
@@ -55,7 +55,7 @@ root of the mongodb/mongo repository.
 Altogether it would look like
 
 ```
-buildscripts/resmoke.py --suites=sharding --storageEngine=wiredTiger --continueOnFailure --jobs=16 --repeat=1 --shuffleMode=on --storageEngineCacheSizeGB=1 jstests/sharding/transactions_multi_writes.js
+buildscripts/resmoke.py run --suites=sharding --storageEngine=wiredTiger --continueOnFailure --jobs=16 --repeat=1 --shuffleMode=on --storageEngineCacheSizeGB=1 jstests/sharding/transactions_multi_writes.js
 ```
 
 ## For multi-version test suites
@@ -64,7 +64,7 @@ Note that if you're attempting to run a multi-version test suite (see below) the
 `/data/multiversion` directory must be on your `PATH`.
 
 ```
-PATH=/data/multiversion:$PATH buildscripts/resmoke.py --suites=multiversion ...
+PATH=/data/multiversion:$PATH buildscripts/resmoke.py run --suites=multiversion ...
 ```
 
 **Protip**: Consider permanently adding the `/data/multiversion/` directory to your `PATH` by
@@ -83,7 +83,7 @@ attached to any `_gen`-suffixed Evergreen task ([for example](https://evergreen.
 Multi-version test suites encompass anything which exercises upgrade/downgrade or mixed-version
 MongoDB clusters. Logic for spawning an earlier version of MongoDB within a JavaScript test is built
 into the mongo shell by searching for a `<executable name>-<version suffix>` file (e.g.
-`mongod-4.0`) on the `PATH`. Tests which do so can most easily be identified by their usage of
+`mongod-5.0`) on the `PATH`. Tests which do so can most easily be identified by their usage of
 `binVersion` as an argument to `MongoRunner`, `ReplSetTest`, `ShardingTest`, etc. Some examples of
 Evergreen tasks that do this are listed below:
 
@@ -96,33 +96,30 @@ Evergreen tasks that do this are listed below:
 - update_fuzzer_replication
 
 The `"do multiversion setup"` function defined in the `etc/evergreen.yml` project configuration file
-is responsible for running the `buildscripts/setup_multiversion_mongodb.py` script. The arguments to
-the `buildscripts/setup_multiversion_mongodb.py` script can be found in the task logs. You may need
+is responsible for running `buildscripts/resmoke.py setup-multiversion`. The arguments to
+the `buildscripts/resmoke.py setup-multiversion` can be found in the task logs. You may need
 to adjust the `--platform` and `--architecture` arguments in order to download binaries suitable for
 your local environment.
 
 ```
 [2019/04/23 20:25:52.106] rm -rf /data/install /data/multiversion
-[2019/04/23 20:25:52.106] $python buildscripts/setup_multiversion_mongodb.py   \
-[2019/04/23 20:25:52.106]   --installDir /data/install                         \
-[2019/04/23 20:25:52.106]   --linkDir /data/multiversion                       \
-[2019/04/23 20:25:52.107]   --edition enterprise             \
-[2019/04/23 20:25:52.107]   --platform rhel62          \
-[2019/04/23 20:25:52.107]   --architecture x86_64 \
-[2019/04/23 20:25:52.107]   --useLatest 3.2 3.4 3.6 4.0 4.0.1 4.0.5
+[2019/04/23 20:25:52.106] $python buildscripts/resmoke.py setup-multiversion
+[2019/04/23 20:25:52.106]   --installDir /data/install
+[2019/04/23 20:25:52.106]   --linkDir /data/multiversion
+[2019/04/23 20:25:52.107]   --edition enterprise
+[2019/04/23 20:25:52.107]   --platform rhel80
+[2019/04/23 20:25:52.107]   --useLatest 4.0 4.0.5 5.0
 ```
 
 ### macOS example
 
-Use `--platform macos` (or `--platform osx` as appropriate) and `--architecture x86_64`.
+Use `--platform macos` and `--architecture x86_64`.
 
 ```
 mkdir -p /data/install /data/multiversion
 rm -rf /data/install/* /data/multiversion/*
-# Use `--platform osx` for versions earlier than MongoDB 4.2
-python buildscripts/setup_multiversion_mongodb.py --installDir /data/install --linkDir /data/multiversion --edition enterprise --platform osx --architecture x86_64 --useLatest 3.2 3.4 3.6 4.0 4.0.1 4.0.5
 # Use `--platform macos` for versions MongoDB 4.2 and later.
-python buildscripts/setup_multiversion_mongodb.py --installDir /data/install --linkDir /data/multiversion --edition enterprise --platform macos --architecture x86_64 --useLatest 4.2
+python buildscripts/resmoke.py setup-multiversion --installDir /data/install --linkDir /data/multiversion --edition enterprise --platform macos --architecture x86_64 --useLatest 5.0
 ```
 
 ## Fuzzer test suites
