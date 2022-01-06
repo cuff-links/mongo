@@ -229,15 +229,14 @@ To avoid implicit type conversion, use the `explicit` keyword before constructor
 For `cpp` Files
 ---------------
 
--   Include mongo/platform/basic.h first. blank line.
 -   Include your .h file next, if applicable. blank line.
 -   Include third party headers next, sorted. blank line.
 -   Include local headers last, sorted.
 
+In versions of the server codebase prior to MongoDB 5.0, `#include "mongo/platform/basic.h"` was written as the first include followed by a blank. After [SERVER-55834](https://jira.mongodb.org/browse/SERVER-55834) this is no longer necessary.
+
 ``` sourceCode
 example for classy.cpp:
-#include "mongo/platform/basic.h"
-
 #include "mongo/db/classy.h"
 
 #include <boost/thread/thread.hpp>
