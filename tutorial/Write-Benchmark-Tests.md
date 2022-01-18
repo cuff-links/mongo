@@ -81,7 +81,8 @@ env.Benchmark(
 
 Preferred style:
 
-* benchmark functions should be named `BM_UpperCamelCase`.
+* benchmark functions should be named `BM_UpperCamelCase`. 
+The name must be UpperCamelCase only and must not include underscores to avoid confusing the metrics processor.
 * benchmark file names should end with `_bm`, excluding the file extension.
 * SCons `Benchmark` targets *must* end with `_bm`.
 
