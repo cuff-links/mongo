@@ -10,7 +10,7 @@ Basics
 
     ``` sourceCode
     /**
-     *    Copyright (C) 2021-present MongoDB, Inc.
+     *    Copyright (C) 2022-present MongoDB, Inc.
      *
      *    This program is free software: you can redistribute it and/or modify
      *    it under the terms of the Server Side Public License, version 1,
@@ -43,7 +43,7 @@ Basics
 
     ``` sourceCode
     /**
-     *    Copyright (C) 2021-present MongoDB, Inc.
+     *    Copyright (C) 2022-present MongoDB, Inc.
      */
     ```
 
