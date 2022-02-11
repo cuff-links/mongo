@@ -5,7 +5,7 @@ Basics
 -   4 spaces per indentation.
 -   Limit lines to 100 columns.
 -   Use LF (Unix-style) line endings, not CR-LF (DOS). git has a config option in Windows to convert line endings automatically (`core.autocrlf`)
--   Starting with MongoDB 3.2 code, all code changes must be formatted by Clang-Format (version specified by [buildscripts/clang_format.py](https://github.com/mongodb/mongo/blob/74ea6aa4dfd7b3b4acf090084d36891834a49385/buildscripts/clang_format.py#L46)) before they are checked in. See clang-format-label for more information.
+-   Starting with MongoDB 3.2 code, all code changes must be formatted by Clang-Format (version specified by [buildscripts/clang_format.py](https://github.com/mongodb/mongo/blob/74ea6aa4dfd7b3b4acf090084d36891834a49385/buildscripts/clang_format.py#L46)) before they are checked in. See ["clang-format" below](#clang-format) for more information.
 -   All new files added to the MongoDB code base should use the following copyright notice and SSPL license language, substituting the current year as appropriate:
 
     ``` sourceCode
