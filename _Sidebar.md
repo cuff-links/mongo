@@ -14,6 +14,7 @@
 * [Writing JavaScript Integration-level Performance Tests](JavaScript-Performance-Testing-Harness)
 * [Running Bisect](Evergreen-Aware-Git-Bisect)
 * [Running Minimized Jstestfuzz Tests](Running-minimized-Agg-fuzzer-and-Query-fuzzer-tests-locally)
+* [Testing with Antithesis](Testing-MongoDB-with-Antithesis)
 
 **Testing in Evergreen**
 * [Running Tests Locally](Running-Tests-from-Evergreen-Tasks-Locally)
