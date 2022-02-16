@@ -1,4 +1,4 @@
-# What is Antithesis?
+## What is Antithesis?
 
 Antithesis is a third party vendor with an environment that can perform superior network fuzzing compared to existing `resmoke` infrastructure (ie: `ContinuousStepdown` hook). Antithesis can spin up various multi-container MongoDB topologies in their environment and run test suites. **Real network fuzzing** is performed between any subset of containers while a test suite runs, and any detected server crashes are reported back.
 
