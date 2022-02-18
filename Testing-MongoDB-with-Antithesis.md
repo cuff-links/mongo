@@ -35,4 +35,4 @@ Running the `concurrency_sharded_with_stepdowns_and_balancer` test suite in anti
 
 ## How to leverage Antithesis
 
-See the [README.md](https://github.com/10gen/mongo/blob/ad5977c28ad442c22e9b4a9b2c7198fd3129f046/buildscripts/antithesis/README.md) for more information on how to leverage Antithesis for testing today.
+See the [README.md](https://github.com/10gen/mongo/blob/master/buildscripts/antithesis/README.md) for more information on how to leverage Antithesis for testing today.
