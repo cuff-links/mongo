@@ -104,7 +104,7 @@ TEST_F(MySuiteFixture, MyFeatureBTest) {
 
 Also see self-test: https://github.com/mongodb/mongo/blob/master/src/mongo/unittest/golden_test_test.cpp
 
-# How to diff and accept new test outputs
+# How to diff and accept new test outputs on a workstation
 
 Use buildscripts/golden_test.py command line tool to manage the test outputs. This includes:
 * diffing all output differences of all tests in a given test run output. 
@@ -167,4 +167,22 @@ mongo > buildscripts/golden_test.py get_root
 Get all available commands and options:
 ```
 mongo > buildscripts/golden_test.py --help
+```
+
+# How to diff test results from a non-workstation test run
+
+## In order to bulk diff the results:
+1. find the failed test(s) and/or result output locations from test log.
+2. Then compare the folders to see the differences for tests that failed.
+
+**Example: (linux/macOS)**
+To obtain the expected and actual output folders:
+```
+$> cat test.log | grep "^{" | jq -s -c -r '.[] | select(.id == 6273501 ) | .attr.expectedOutputRoot + " " +.attr.actualOutputRoot ' | sort | uniq
+```
+
+## In order to pair-wise compare outputs for test that failed.
+Find all expected and actual outputs of tests that have failed
+```
+$> cat test.log | grep "^{" | jq -s '.[] | select(.id == 6273501 ) | .attr.testPath,.attr.expectedOutput,.attr.actualOutput'
 ```
