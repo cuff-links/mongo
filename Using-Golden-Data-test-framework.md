@@ -171,7 +171,7 @@ mongo > buildscripts/golden_test.py --help
 
 # How to diff test results from a non-workstation test run
 
-## In order to bulk diff the results:
+## Bulk folder diff the results:
 1. Parse the test log to find the root output locations where expected and actual output files were written.
 2. Then compare the folders to see the differences for tests that failed.
 
@@ -184,11 +184,11 @@ $> cat test.log | grep "^{" | jq -s -c -r '.[] | select(.id == 6273501 ) | .attr
 $> diff -ruN --unidirectional-new-file --color=always <expected_root> <actual_root>
 ```
 
-## In order to pair-wise compare outputs for test that failed.
+## Find actual outputs of test that failed.
 Parse logs and find the the expected and actual outputs for each failed test.
 
 **Example: (linux/macOS)**
 ```
-#Find all expected and actual outputs of tests that have failed
+# Find all expected and actual outputs of tests that have failed
 $> cat test.log | grep "^{" | jq -s '.[] | select(.id == 6273501 ) | .attr.testPath,.attr.expectedOutput,.attr.actualOutput'
 ```
