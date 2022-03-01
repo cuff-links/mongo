@@ -184,7 +184,7 @@ $> cat test.log | grep "^{" | jq -s -c -r '.[] | select(.id == 6273501 ) | .attr
 $> diff -ruN --unidirectional-new-file --color=always <expected_root> <actual_root>
 ```
 
-## Find actual outputs of test that failed.
+## Find the outputs of tests that failed.
 Parse logs and find the the expected and actual outputs for each failed test.
 
 **Example: (linux/macOS)**
