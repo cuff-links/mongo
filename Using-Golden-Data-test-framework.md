@@ -1,9 +1,9 @@
-## Overview
+# Overview
 Golden Data test framework provides ability to run and manage tests that produce an output which is verified by comparing it to the checked-in, known valid output. Any differences result in rest failure and either the code or expected output has to be updated.
 
 Golden Data tests excel at bulk diffing of failed test outputs and bulk accepting of new test outputs. 
 
-## When to use Golden Data tests?
+# When to use Golden Data tests?
 * Code under test produces a deterministic output: That way tests can consistently succeeds or fails.
 * Incremental changes to code under test or test fixture result in incremental changes to the output.
 * As an alternative to ASSERT for large output comparison: Serves the same purpose, but provides tools for diffing/updating.
@@ -12,7 +12,7 @@ Golden Data tests excel at bulk diffing of failed test outputs and bulk acceptin
   * Verifying that pretty printing works, MAY use Golden Data tests to verify the output, as there might not be well known properties or those properties can easily change.
 * As stability/versioning/regression testing. Golden Data tests by storing recorded outputs, are good candidate for preserving behavior of legacy versions or detecting undesired changes in behavior, even in cases when new behavior meets other correctness criteria.
 
-## Best practices for working with Golden Data tests
+# Best practices for working with Golden Data tests
 * Tests MUST produce text output that is diffable can be inspected in the pull request.
 
 * Tests MUST produce an output that is deterministic and repeatable. Including running on different platforms. Same as with ASSERT_EQ.
@@ -49,14 +49,14 @@ Golden Data tests excel at bulk diffing of failed test outputs and bulk acceptin
   * Functional tests, integration tests and unit tests that test the same behavior in different environments.
   * Versioned tests, where expected behavior is the same for majority of test inputs/scenarios. 
 
-## How to use Golden Data tests?
+# How to use Golden Data tests?
 
-# Writing tests
+## Writing tests
 Each golden data test should produce a text output that will be later verified. The output format must be text, but otherwise test author can choose a most appropriate output format (text, json, bson, yaml or mixed). If a test consists of multiple variations each variation should be clearly separated from each other. 
 
 Note: Test output is usually only written. It is ok to focus on just writing serialization/printing code without a need to provide deserialization/parsing code. 
 
-** CPP tests**
+### CPP tests
 ::mongo::unittest::GoldenTestConfig - Provides a way to configure test suite(s). Defines where the expected output files are located in the source repo.
 
 ::mongo::unittest::GoldenTestContext - Provides an output stream where tests should write their outputs. Verifies the output with the expected output that is in the source repo
@@ -99,7 +99,7 @@ TEST_F(MySuiteFixture, MyFeatureBTest) {
 `
 Also see self-test: https://github.com/mongodb/mongo/blob/master/src/mongo/unittest/golden_test_test.cpp
 
-# Diffing and accepting test outputs
+## Diffing and accepting test outputs
 
 Use buildscripts/golden_test.py command line tool to manage the test outputs.
 
