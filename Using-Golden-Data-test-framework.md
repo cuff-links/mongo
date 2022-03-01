@@ -57,14 +57,14 @@ Each golden data test should produce a text output that will be later verified. 
 Note: Test output is usually only written. It is ok to focus on just writing serialization/printing code without a need to provide deserialization/parsing code. 
 
 ### CPP tests
-::mongo::unittest::GoldenTestConfig - Provides a way to configure test suite(s). Defines where the expected output files are located in the source repo.
+`::mongo::unittest::GoldenTestConfig` - Provides a way to configure test suite(s). Defines where the expected output files are located in the source repo.
 
-::mongo::unittest::GoldenTestContext - Provides an output stream where tests should write their outputs. Verifies the output with the expected output that is in the source repo
+`::mongo::unittest::GoldenTestContext` - Provides an output stream where tests should write their outputs. Verifies the output with the expected output that is in the source repo
 
 See: https://github.com/mongodb/mongo/blob/master/src/mongo/unittest/golden_test.h
 
-** Example: **
-`
+**Example:**
+```
 #include "mongo/unittest/golden_test.h"
 
 GoldenTestConfig myConfig("src/mongo/my_expected_output");
@@ -95,8 +95,8 @@ TEST_F(MySuiteFixture, MyFeatureBTest) {
     runMyVariation(ctx, "variation 3", "some input testing B #3")
     runMyVariation(ctx, "variation 4", "some input testing B #4")
 }
+```
 
-`
 Also see self-test: https://github.com/mongodb/mongo/blob/master/src/mongo/unittest/golden_test_test.cpp
 
 ## Diffing and accepting test outputs
