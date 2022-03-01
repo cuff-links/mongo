@@ -49,14 +49,19 @@ Golden Data tests excel at bulk diffing of failed test outputs and bulk acceptin
   * Functional tests, integration tests and unit tests that test the same behavior in different environments.
   * Versioned tests, where expected behavior is the same for majority of test inputs/scenarios. 
 
-# How to use Golden Data tests?
+* AVOID manually modifying expected output files. Those files are considered to be auto generated. Instead, run the tests and then copy the generated output as a new expected output file. See "How to diff and accept new test outputs" section for instructions.
 
-## Writing tests
+
+# How to use write Golden Data tests?
 Each golden data test should produce a text output that will be later verified. The output format must be text, but otherwise test author can choose a most appropriate output format (text, json, bson, yaml or mixed). If a test consists of multiple variations each variation should be clearly separated from each other. 
 
 Note: Test output is usually only written. It is ok to focus on just writing serialization/printing code without a need to provide deserialization/parsing code. 
 
-### CPP tests
+When actual test output is different from expected output, test framework will fail the test, log both outputs and also create following files, that can be inspected later:
+* <output_path>/actual/<test_path> - with actual test output
+* <output_path>/expected/<test_path> - with expected test output
+
+## CPP tests
 `::mongo::unittest::GoldenTestConfig` - Provides a way to configure test suite(s). Defines where the expected output files are located in the source repo.
 
 `::mongo::unittest::GoldenTestContext` - Provides an output stream where tests should write their outputs. Verifies the output with the expected output that is in the source repo
@@ -99,10 +104,67 @@ TEST_F(MySuiteFixture, MyFeatureBTest) {
 
 Also see self-test: https://github.com/mongodb/mongo/blob/master/src/mongo/unittest/golden_test_test.cpp
 
-## Diffing and accepting test outputs
+# How to diff and accept new test outputs
 
-Use buildscripts/golden_test.py command line tool to manage the test outputs.
+Use buildscripts/golden_test.py command line tool to manage the test outputs. This includes:
+* diffing all output differences of all tests in a given test run output. 
+* accepting all output differences of all tests in a given test run output. 
+
+## Setup
+buildscripts/golden_test.py requires a one-time workstation setup.
+Note: this setup is only required to use buildscripts/golden_test.py itself, it is NOT required to just run the Golden Data tests when not using buildscripts/golden_test.py.
+
+1. Create a yaml config file, as described by golden_test_options.idl (link TBD). 
+2. Set GOLDEN_TEST_CONFIG_PATH environment variable to config file location, so that is available when running tests and when running buildscripts/golden_test.py tool.
+
+**Example (linux/macOS):**
+
+Create ~/.golden_test_config.yml
+```
+outputRoot: /var/tmp/test_output
+outputPrefix: out
+diffCmd: diff -ruN --unidirectional-new-file --color=always "$EXPECTED" "$ACTUAL"
+```
+
+Update .bashrc, .zshrc
+```
+export GOLDEN_TEST_CONFIG_PATH=~/.golden_test_config.yml
+```
+alternatively modify /etc/environment or other configuration if needed by Debugger/IDE etc.
+
+## Usage
+
+### List all available test outputs
+```
+mongo > buildscripts/golden_test.py list
+```
+
+### Diff test results from most recent test run:
+
+```
+mongo > buildscripts/golden_test.py diff
+```
+This will run the diffCmd that was specified in the config file
+
+### Diff test results from most recent test run:
+```
+mongo > buildscripts/golden_test.py accept
+```
+This will copy all actual test outputs from that test run to the source repo and new expected outputs.
 
 
-TBD
+### Get paths from most recent test run (to be used by custom tools)
+Get expected and actual output paths for most recent test run:
+```
+mongo > buildscripts/golden_test.py get
+```
 
+Get expected and actual output paths for most most recent test run:
+```
+mongo > buildscripts/golden_test.py get_root
+```
+
+Get all available commands and options:
+```
+mongo > buildscripts/golden_test.py --help
+```
