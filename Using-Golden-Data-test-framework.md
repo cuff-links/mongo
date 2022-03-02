@@ -4,7 +4,7 @@ Golden Data test framework provides ability to run and manage tests that produce
 Golden Data tests excel at bulk diffing of failed test outputs and bulk accepting of new test outputs. 
 
 # When to use Golden Data tests?
-* Code under test produces a deterministic output: That way tests can consistently succeeds or fails.
+* Code under test produces a deterministic output: That way tests can consistently succeed or fail.
 * Incremental changes to code under test or test fixture result in incremental changes to the output.
 * As an alternative to ASSERT for large output comparison: Serves the same purpose, but provides tools for diffing/updating.
 * The outputs can't be objectively verified (e.g. by verifying well known properties). Examples:
