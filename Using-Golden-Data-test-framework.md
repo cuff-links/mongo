@@ -119,10 +119,22 @@ Note: this setup is only required to use buildscripts/golden_test.py itself, it 
 
 **Example (linux/macOS):**
 
-Create ~/.golden_test_config.yml
+Create ~/.golden_test_config.yml, as one of the variants below, depending on personal preference.
+
+a. A config that uses a unique subfolder folder for each test run.
+   * Allows diffing each test run separately. 
+   * Works with multiple source repos.
 ```
-outputRoot: /var/tmp/test_output
-outputPrefix: out
+outputRootPattern: /var/tmp/test_output/out-%%%%-%%%%-%%%%-%%%%
+diffCmd: diff -ruN --unidirectional-new-file --color=always "$EXPECTED" "$ACTUAL"
+```
+
+b. A config that uses the same folder for each test run.
+   * Allows to execute multiple independent test run and then diff them together. 
+   * Requires running "buildscripts/golden_test.py list" to remove output files from previous runs.
+   * May not work as well with multiple source repos.
+```
+outputRootPattern: /var/tmp/test_output
 diffCmd: diff -ruN --unidirectional-new-file --color=always "$EXPECTED" "$ACTUAL"
 ```
 
@@ -131,6 +143,7 @@ Update .bashrc, .zshrc
 export GOLDEN_TEST_CONFIG_PATH=~/.golden_test_config.yml
 ```
 alternatively modify /etc/environment or other configuration if needed by Debugger/IDE etc.
+
 
 ## Usage
 
@@ -191,4 +204,30 @@ Parse logs and find the the expected and actual outputs for each failed test.
 ```
 # Find all expected and actual outputs of tests that have failed
 $> cat test.log | grep "^{" | jq -s '.[] | select(.id == 6273501 ) | .attr.testPath,.attr.expectedOutput,.attr.actualOutput'
+```
+
+# Appendix - Config file reference
+
+Golden Data test config file is a YAML file specified as:
+```
+outputRootPattern: 
+    type: String
+    optional: true
+    description:
+         Root path patten that will be used to write expected and actual test outputs for all tests in the test run.
+         If not specified a temporary folder location will be used.
+         Path pattern string may use '%' characters in the last part of the path. '%' characters in the last part of the path 
+         will be replaced with a random characters.
+    examples:
+         /var/tmp/test_output/out-%%%%-%%%%-%%%%-%%%%
+         /var/tmp/test_output
+
+diffCmd: 
+    type: String
+    description:  
+        Shell command used to diff a single golden test run output.
+        $EXPECTED and $ACTUAL variables should be used and will be replaced 
+        with expected and actual output folder paths respectively.'
+    examples: 
+         diff -ruN --unidirectional-new-file --color=always "$EXPECTED" "$ACTUAL"
 ```
