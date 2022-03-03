@@ -120,6 +120,7 @@ Note: this setup is only required to use buildscripts/golden_test.py itself, it 
 **Example (linux/macOS):**
 
 Create ~/.golden_test_config.yml, as one of the variants below, depending on personal preference.
+For full documentation of config file format see: https://github.com/mongodb/mongo/wiki/Using-Golden-Data-test-framework#appendix---config-file-reference
 
 a. A config that uses a unique subfolder folder for each test run.
    * Allows diffing each test run separately. 
