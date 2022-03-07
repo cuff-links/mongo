@@ -219,7 +219,7 @@ outputRootPattern:
          Root path patten that will be used to write expected and actual test outputs for all tests in the test run.
          If not specified a temporary folder location will be used.
          Path pattern string may use '%' characters in the last part of the path. '%' characters in the last part of the path 
-         will be replaced with a random characters.
+         will be replaced with random valid path characters.
     examples:
          /var/tmp/test_output/out-%%%%-%%%%-%%%%-%%%%
          /var/tmp/test_output
