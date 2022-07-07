@@ -2,7 +2,7 @@ WARNING
 -----------
 
 This document is largely obsolete. Please refer to 
-[src/mongo/logv2/README.md](https://github.com/mongodb/mongo/blob/master/src/mongo/logv2/README.md)
+[docs/logging.md](https://github.com/mongodb/mongo/blob/master/docs/logging.md)
 for up-to-date guidance on logging.
 
 ***
