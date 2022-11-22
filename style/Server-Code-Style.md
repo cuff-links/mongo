@@ -145,6 +145,19 @@ void foo(int v, MyType myItem) {
 }
 ```
 
+### Output Parameters
+
+The [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Inputs_and_Outputs) recommends that output parameters be declared as references.
+
+``` sourceCode
+void exportData(const std::string& tag, MyType& myItem) {
+    myItem = _getData(tag);
+}
+```
+
+The use of references for output parameters over pointers is a [recent change in the Google C++ Style Guide](https://github.com/google/styleguide/blob/967e157a000ddd4cad4eaabe8466a98260c4b825/cppguide.html#L1707) so it is possible to find [instances of output parameters declared as pointers](https://github.com/mongodb/mongo/blob/8672f026dd4719a994c450e8deb84588d71e24fc/src/mongo/db/s/collection_metadata.h#L237) in the codebase. See SERVER-71412.
+
+
 Namespaces
 ----------
 
