@@ -43,7 +43,7 @@ Basics
 
     ``` sourceCode
     /**
-     *    Copyright (C) 2022-present MongoDB, Inc.
+     *    Copyright (C) 2023-present MongoDB, Inc.
      */
     ```
 
