@@ -95,7 +95,7 @@ There are a number of existing tests that serve as good examples:
 Following the best practices below will ensure that your test has a high signal to noise ratio.
 
 * Benchmark with all optimizations enabled, as you would compile a production build. This means 
-using the toolchain g++, static linking, `dbg=on`, `opt=off`, etc.
+using the toolchain g++, static linking, `dbg=off`, `opt=on`, etc.
 * Use `benchmark::DoNotOptimize()` liberally to prevent your code from being optimized away; when 
 in doubt, use it. 
   * There are a number of other mechanisms available to prevent unexpected optimizations:
