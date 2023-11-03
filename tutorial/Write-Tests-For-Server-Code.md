@@ -25,7 +25,7 @@ Refer to [unittest/unittest.h](https://github.com/mongodb/mongo/blob/master/src/
 
 After writing a new C++ unit test, the next step is to declare the test as a [SCons](http://www.scons.org/) target in an SConscript file. This is easiest to show by example:
 
-There are multiple uses of the `TEST`\` macro in the unit test [parsed\_projection\_test.cpp](https://github.com/mongodb/mongo/blob/v2.6/src/mongo/db/query/parsed_projection_test.cpp#L91) found in the `src/mongo/db/query` subdirectory. To build parsed\_projection\_test.cpp\_, it must be [declared inside an SConscript file](https://github.com/mongodb/mongo/blob/v2.6/src/mongo/db/query/SConscript#L178) found in the same `src/mongo/db/query` subdirectory.
+There are multiple uses of the `TEST` macro in the unit test [parsed\_projection\_test.cpp](https://github.com/mongodb/mongo/blob/v2.6/src/mongo/db/query/parsed_projection_test.cpp#L91) found in the `src/mongo/db/query` subdirectory. To build parsed\_projection\_test.cpp\_, it must be [declared inside an SConscript file](https://github.com/mongodb/mongo/blob/v2.6/src/mongo/db/query/SConscript#L178) found in the same `src/mongo/db/query` subdirectory.
 
 A SConscript declaration has three parts: a `target` name, a `source` referring to the test file, and a list of `LIBDEPS` or library dependencies.
 
