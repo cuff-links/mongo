@@ -16,7 +16,7 @@ protected:
     void setUp() { myVar = 10; }
 };
 
-TEST(FixtureClass, TestThatUsesFixture) {
+TEST_F(FixtureClass, TestThatUsesFixture) {
     ASSERT_EQUALS(10, myVar);
 }
 ```
