@@ -11,11 +11,11 @@ Links to Project on GitHub| Project Documentation
 [C++ Driver](https://github.com/mongodb/mongo-cxx-driver/) | [C++ Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/cpp/)
 [C\# Driver](https://github.com/mongodb/mongo-csharp-driver) | [C\# Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/csharp/)
 [Java Driver](https://github.com/mongodb/mongo-java-driver) | [Java Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/java/)
-[Node Driver](https://github.com/mongodb/node-mongodb-native) | [Node Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/node-js/)
+[Node Driver](https://github.com/mongodb/node-mongodb-native) | [Node Driver Documentation](http://www.mongodb.com/docs/drivers/node/current/)
 [Perl Driver](https://github.com/mongodb/mongo-perl-driver) | [Perl Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/perl/)
 [PHP Driver](https://github.com/mongodb/mongo-php-driver) | [PHP Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/php/)
 [Python Driver](https://github.com/mongodb/mongo-python-driver) | [Python Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/python/)
-[Ruby Driver](https://github.com/mongodb/mongo-ruby-driver) | [Ruby Driver Documentation](http://docs.mongodb.org/ecosystem/drivers/ruby/)
+[Ruby Driver](https://github.com/mongodb/mongo-ruby-driver) | [Ruby Driver Documentation](http://www.mongodb.com/docs/drivers/ruby-drivers/)
 [Casbah (Scala Driver)](https://github.com/mongodb/casbah) | [Casbah (Scala Driver) Documentation](http://docs.mongodb.org/ecosystem/drivers/scala/)
 [Hadoop Connector](https://github.com/mongodb/mongo-hadoop) | [Hadoop Connector Documentation](http://docs.mongodb.org/ecosystem/tools/hadoop/)
 

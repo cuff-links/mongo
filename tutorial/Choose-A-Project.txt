@@ -35,7 +35,7 @@ from Github, follow the links to the projects.
      - `Java Driver Documentation <http://docs.mongodb.org/ecosystem/drivers/java/>`_
 
    * - `Node Driver <https://github.com/mongodb/node-mongodb-native>`_
-     - `Node Driver Documentation <http://docs.mongodb.org/ecosystem/drivers/node-js/>`_
+     - `Node Driver Documentation <http://www.mongodb.com/docs/drivers/node/current/>`_
 
    * - `Perl Driver <https://github.com/mongodb/mongo-perl-driver>`_
      - `Perl Driver Documentation <http://docs.mongodb.org/ecosystem/drivers/perl/>`_
@@ -47,7 +47,7 @@ from Github, follow the links to the projects.
      - `Python Driver Documentation <http://docs.mongodb.org/ecosystem/drivers/python/>`_
 
    * - `Ruby Driver <https://github.com/mongodb/mongo-ruby-driver>`_
-     - `Ruby Driver Documentation <http://docs.mongodb.org/ecosystem/drivers/ruby/>`_
+     - `Ruby Driver Documentation <http://www.mongodb.com/docs/drivers/ruby-drivers/>`_
 
    * - `Casbah (Scala Driver) <https://github.com/mongodb/casbah>`_
      - `Casbah (Scala Driver) Documentation <http://docs.mongodb.org/ecosystem/drivers/scala/>`_
